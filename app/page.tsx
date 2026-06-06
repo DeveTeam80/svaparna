@@ -19,10 +19,12 @@ import Services from "./components/home/Services";
 // import Contact from "@/components/Contact";
 
 export default function Home() {
-  
   return (
     <>
-      <Hero />
+      <Hero
+        onStartJourneyClick={() => console.log("Start journey")}
+        onBookConsultationClick={() => console.log("Book consultation")}
+      />
       {/* <InspiredByNature />
       <CoveredHeadToToe onBookConsultation={() => {}} />
       <Contact /> */}
@@ -32,7 +34,7 @@ export default function Home() {
       <ConditionsTreated onBookConsultation={() => {}} />
       <OurProcess />
       <Difference onBookClick={() => {}} />
-      <TreatmentPackages/>
+      <TreatmentPackages />
       <ReviewsCarousel />
       <FAQ />
       <CTABand onBookClick={() => {}} />
