@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Star, ChevronLeft, ChevronRight, Clover } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function ReviewsCarousel() {
@@ -8,26 +10,26 @@ export default function ReviewsCarousel() {
   const testimonials = [
     {
       id: 0,
-      text: "After my surgery, it was recommended I see a certified joint and muscle specialist. I feel incredibly lucky to have discovered Svaparna. Their expertise and personalized care not only helped me regain strength, but also gave me the confidence to get back to my daily activities.",
+      text: "Hi, I'm Smriti, and I consulted Dr. Aparna of Swaparna Health for a back injury of mine. This happened a couple of months ago, and I was in severe pain. So Dr. Aparna actually tapped me on the back so that I could do my daily activities and so that my work week was not affected. And over the course of the last one and a half months, I have become independent and I'm able to do all the activities again with minimal problems and pain. So I have seen the progress in my posture and in the way I am doing day-to-day activities. And there is a lot of change which I am noticing in terms of how I feel and how I'm getting things done. So I highly recommend Dr. Aparna for all your needs of physical therapy. Thank you.",
       author: "Louise Dias",
-      leftImage:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800&h=900", // Woman holding tea cup/smiling outdoors
+      leftVideo: "assets/testimonial-videos/MsSmritiTestimonial.MOV",
+      rightImage: "assets/testimonial-videos/testimonial-img1.png",
       platform: "Google reviews",
     },
     {
       id: 1,
-      text: "Dealing with chronic shoulder tendonitis made it impossible to swim or sleep peacefully. The highly customized, DPT-led rehabilitation at Svaparna completely turned things around. We addressed my joint mobility and breathing patterns as one cohesive unit.",
+      text: "Hi, this is Mala. I had an umbilical hernia surgery in January. After my umbilical hernia surgery, Dr. Aparna's unique combination of physiotherapy and Ayurveda helped me recover far beyond my expectations. Her exercises improved my mobility immediately, while Ayurvedic treatments eased bloating, supported scar healing, and strengthened my core. Within six weeks, I was back to yoga and all my normal activities.",
       author: "Michael Chang",
-      leftImage:
-        "https://images.unsplash.com/photo-1617341740778-76a78fc3177c?auto=format&fit=crop&q=80&w=800&h=1000", // Tennis player in yellow shirt
+      leftVideo: "assets/testimonial-videos/MrsMalaTestimonialTake2.MOV",
+      rightImage: "assets/testimonial-videos/testimonial-img3.png",
       platform: "Google reviews",
     },
     {
       id: 2,
-      text: "I was struggling with postpartum pelvic floor issues and constant back pain. Dr. Aparna's deep clinical knowledge, combined with Ayurvedic healing principles, provided a sanctuary of holistic recovery. I am now completely pain-free.",
+      text: "Hello, This is Dr. Suri. I'm an acupunctress from California. I've had the opportunity to work with Dr. Aparna, and I really come to appreciate both her knowledge and the care she puts into her work. One thing that stands out to me is that how much she truly listens. She takes time to understand each person's concerns and creates an approach that feels personalized and thoughtful rather than one-size-fits-all. I would highly recommend experiencing the integrative approach that Dr. Aparna and Svaparna Health bring to supporting health and wellness.",
       author: "Sophia Martinez",
-      leftImage:
-        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800&h=1000", // Peaceful beach yoga alignment
+      leftVideo: "assets/testimonial-videos/DrSuriTestimonial.mp4",
+      rightImage: "assets/testimonial-videos/testimonial-img2.png",
       platform: "Google reviews",
     },
   ];
@@ -44,12 +46,10 @@ export default function ReviewsCarousel() {
     );
   };
 
-  const nextIndex = (currentIndex + 1) % testimonials.length;
-
   return (
     <section
       id="reviews"
-      className="py-16 bg-[#fffef7] text-primary-brand relative overflow-hidden"
+      className="py-12 sm:py-14 bg-[#fffef7] text-primary-brand relative overflow-hidden"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -58,33 +58,29 @@ export default function ReviewsCarousel() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {/* Outer Premium Card Frame matching the mockup */}
-        <div className="bg-[#fcf7f4] rounded-[2.5rem] p-6 sm:p-12 md:p-16 relative overflow-hidden shadow-xs border border-primary-brand/5">
-          {/* Header Block Row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left relative z-10">
-            <div className="space-y-4">
+        <div className="bg-[#fcf7f4] rounded-[2rem] sm:rounded-[2.25rem] p-4 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden shadow-xs border border-primary-brand/5">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 sm:mb-10 text-left relative z-10">
+            <div className="space-y-3">
               <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
                 Testimonials
               </span>
 
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-primary-brand tracking-tight">
                 Recovery, in Their Own Words.
               </h2>
             </div>
 
-            {/* Read More Reviews Button */}
             <div className="shrink-0 flex items-center space-x-4">
               <button
                 id="btn-read-more-reviews"
                 onClick={() => window.open("https://google.com", "_blank")}
-                className="inline-flex items-center justify-center bg-primary-brand text-white hover:bg-[#52133a] active:scale-98 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-2xs transition-all duration-300 pointer-events-auto cursor-pointer"
+                className="inline-flex items-center justify-center bg-primary-brand text-white hover:bg-[#52133a] active:scale-98 font-bold text-xs sm:text-sm px-6 sm:px-7 py-3 rounded-full shadow-2xs transition-all duration-300 pointer-events-auto cursor-pointer"
               >
                 Read More Reviews
               </button>
             </div>
           </div>
 
-          {/* Testimonial Active Slider Viewport */}
           <div className="relative z-10">
             <AnimatePresence mode="wait">
               <motion.div
@@ -93,44 +89,37 @@ export default function ReviewsCarousel() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -15 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-6 items-stretch"
               >
-                {/* DOUBLE-WIDE SEAMLESS CARD (66% Width on desktop / 8 Cols) */}
-                <div className="lg:col-span-8 flex flex-col md:flex-row bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_35px_rgba(99,26,71,0.02)] border border-primary-brand/5">
-                  {/* Left Column Image */}
-                  <div className="md:w-1/2 relative h-[250px] md:h-full min-h-[320px]">
-                    <img
-                      src={testimonials[currentIndex].leftImage}
-                      alt={testimonials[currentIndex].author}
+                <div className="lg:col-span-8 flex flex-col md:flex-row bg-white rounded-[1.75rem] overflow-hidden shadow-[0_10px_35px_rgba(99,26,71,0.02)] border border-primary-brand/5">
+                  <div className="w-[full] md:w-[38%] relative h-[200px] sm:h-[220px] md:h-[240px] lg:h-[60vh] min-h-[200px] bg-black">
+                    <video
+                      src={testimonials[currentIndex].leftVideo}
                       className="w-full h-full object-cover object-center"
-                      referrerPolicy="no-referrer"
+                      controls
+                      preload="metadata"
+                      playsInline
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/5 to-transparent" />
                   </div>
 
-                  {/* Right Column Testimonial text card */}
-                  <div className="md:w-1/2 p-8 sm:p-10 flex flex-col justify-between text-left space-y-8 bg-white">
-                    {/* Upper Quote marks */}
+                  <div className="w-full md:w-[62%] p-5 sm:p-6 md:p-7 lg:p-8 flex flex-col justify-between text-left space-y-6 bg-white">
                     <div>
-                      <span className="font-serif text-6xl leading-none text-gold-start select-none block -mt-2 -ml-2 font-black">
+                      <span className="font-serif text-5xl sm:text-6xl leading-none text-gold-start select-none block -mt-2 -ml-2 font-black">
                         “
                       </span>
-                      {/* Review body copy */}
-                      <p className="text-xs sm:text-sm md:text-base text-neutral-900 leading-relaxed font-light font-sans mt-2">
+                      <p className="text-xs sm:text-sm md:text-[15px] text-neutral-900 leading-relaxed font-light font-sans mt-2">
                         {testimonials[currentIndex].text}
                       </p>
                     </div>
 
-                    {/* Bottom Metadata row */}
                     <div className="flex items-end justify-between gap-4 pt-4 border-t border-primary-brand/10">
                       <span className="font-serif text-sm sm:text-base font-bold text-primary-brand">
                         {testimonials[currentIndex].author}
                       </span>
 
-                      {/* Google review micro ratings decoration to match layout exactly */}
                       <div className="flex flex-col items-center">
                         <div className="flex items-center space-x-1.5">
-                          {/* Google logo badge */}
                           <svg className="w-4 h-4" viewBox="0 0 24 24">
                             <path
                               fill="#4285F4"
@@ -150,7 +139,6 @@ export default function ReviewsCarousel() {
                             />
                           </svg>
 
-                          {/* 5-star ranking block */}
                           <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
                               <Star
@@ -169,33 +157,28 @@ export default function ReviewsCarousel() {
                   </div>
                 </div>
 
-                {/* SINGLE-WIDE AMBIENT ATHLETIC PHOTO (33% Width on desktop / 4 Cols) */}
-                <div className="lg:col-span-4 relative h-[300px] lg:h-auto rounded-[2rem] overflow-hidden shadow-[0_10px_35px_rgba(99,26,71,0.02)] border border-primary-brand/5">
+                <div className="lg:col-span-4 relative h-[240px] sm:h-[280px] lg:h-[60vh] rounded-[1.75rem] overflow-hidden shadow-[0_10px_35px_rgba(99,26,71,0.02)] border border-primary-brand/5">
                   <img
-                    src={testimonials[nextIndex].leftImage}
+                    src={testimonials[currentIndex].rightImage}
                     alt="Active pain-free physical outcome"
                     className="w-full h-full object-cover object-center"
                     referrerPolicy="no-referrer"
                   />
-                  {/* Gentle gradient shroud */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Slider Controllers bar */}
-          <div className="mt-8 flex items-center justify-center space-x-6 relative z-20">
-            {/* Prev Trigger */}
+          <div className="mt-6 sm:mt-8 flex items-center justify-center space-x-4 sm:space-x-6 relative z-20">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white border border-primary-brand/20 text-primary-brand flex items-center justify-center hover:bg-primary-brand/5 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-primary-brand/20 text-primary-brand flex items-center justify-center hover:bg-primary-brand/5 active:scale-95 transition-all duration-200 cursor-pointer"
               aria-label="Previous review"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            {/* Pagination Indicators */}
             <div className="flex items-center space-x-2">
               {testimonials.map((t) => (
                 <button
@@ -211,13 +194,12 @@ export default function ReviewsCarousel() {
               ))}
             </div>
 
-            {/* Next Trigger */}
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-white border border-primary-brand/20 text-primary-brand flex items-center justify-center hover:bg-primary-brand/5 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-primary-brand/20 text-primary-brand flex items-center justify-center hover:bg-primary-brand/5 active:scale-95 transition-all duration-200 cursor-pointer"
               aria-label="Next review"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>

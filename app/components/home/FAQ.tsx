@@ -36,18 +36,6 @@ export default function FAQ() {
       answer:
         "The initial consultation lasts approximately 60 minutes, allowing for a detailed assessment and discussion of your concerns. Follow-up sessions are typically 45 minutes long.",
     },
-    {
-      id: 4,
-      question: "Do you accept insurance or require a doctor's referral?",
-      answer:
-        "No referral is required to schedule an appointment. We operate as a direct-pay practice and currently do not process insurance claims directly.",
-    },
-    {
-      id: 5,
-      question: "What payment methods are accepted?",
-      answer:
-        "For clients in India, we accept Cash and UPI payments. For clients in the United States, payments can be made through PayPal.",
-    },
   ];
 
   const handleToggle = (id: number) => {

@@ -1,7 +1,4 @@
-import {
-  ArrowRight,
-  Plus,
-} from "lucide-react"; 
+import { ArrowRight, Plus } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 interface HeroProps {
@@ -24,10 +21,10 @@ export default function Hero({
   return (
     <section
       id="home"
-      className="relative pt-24 pb-12 overflow-hidden bg-[#fffef7] px-4 sm:px-6 lg:px-8"
+      className="relative pt-24 pb-12 overflow-hidden bg-white px-4 sm:px-6 lg:px-8"
     >
       {/* Decorative Subtle Background Aura */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-end/10 rounded-full blur-3xl pointer-events-none -translate-y-12 translate-x-12"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none -translate-y-12 translate-x-12"></div>
 
       {/* Curved Container Wrapper */}
       <motion.div
@@ -42,13 +39,13 @@ export default function Hero({
           style={{ scale: bgScale }}
         >
           <img
-            src="/assets/images/hero.jpg"
+            src="/assets/images/hero-banner.png"
             alt="Ayurvedic Wisdom and Advanced Physical Therapy Session"
             className="w-full h-full object-cover object-center opacity-85 brightness-[0.70]"
             referrerPolicy="no-referrer"
           />
           {/* Linear neutral dark-to-black overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/40"></div>
         </motion.div>
 
         {/* Content Section */}
@@ -87,19 +84,19 @@ export default function Hero({
         </div>
 
         {/* --- ANIMATED BEZIER SCURVE DIVIDER AND FEATURE BADGES --- */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-0 left-0 right-0 w-full z-20 pointer-events-none select-none"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.6, 
-            delay: 0.5, 
-            ease: [0.215, 0.610, 0.355, 1.000] 
+          transition={{
+            duration: 0.6,
+            delay: 0.5,
+            ease: [0.215, 0.61, 0.355, 1.0],
           }}
         >
           <svg
             viewBox="350 0 500 120"
-            className="w-full max-w-[700px] h-[70px] sm:h-[90px] text-[#fffef7] fill-current mx-auto"
+            className="w-full max-w-[700px] h-[70px] sm:h-[90px] text-[#fffef7] fill-white mx-auto"
             preserveAspectRatio="none"
           >
             <path d="M370 120 C405 120 420 10 450 10 H750 C780 10 795 120 830 120 Z" />
@@ -109,7 +106,7 @@ export default function Hero({
           <div className="absolute inset-x-0 bottom-1 pointer-events-auto flex flex-col items-center justify-end">
             {/* Top Badge */}
             <div className="flex flex-col items-center justify-center w-full">
-              <div className="flex items-center space-x-1.5 px-4 py-1.5 md:py-2 bg-white/80 backdrop-blur-md rounded-full shadow-xs border border-primary-brand/5 max-w-xs sm:max-w-md md:-translate-y-2 lg:-translate-y-4">
+              <div className="flex items-center space-x-1.5 px-4 py-1.5 md:py-2 bg-white backdrop-blur-md rounded-full shadow-xs border border-primary-brand/5 max-w-xs sm:max-w-md md:-translate-y-2 lg:-translate-y-4">
                 <Plus className="w-3.5 h-3.5 text-primary-brand animate-pulse" />
                 <span className="text-[9px] sm:text-[10px] md:text-xs font-mono font-bold tracking-wider text-primary-brand uppercase">
                   SAME-DAY APPOINTMENT ARE AVAILABLE

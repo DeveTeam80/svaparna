@@ -35,8 +35,7 @@ export default function Footer({ onBookClick }: FooterProps) {
   return (
     <footer id="main-footer" className="relative w-full bg-white select-none">
       {/* ================= MAP SECTION ================= */}
-      <div className="relative w-full h-[450px] overflow-hidden bg-neutral-100">
-        {/* Interactive Google Map iframe representing 200 Sutter St San Francisco */}
+      {/* <div className="relative w-full h-[450px] overflow-hidden bg-neutral-100">
         <iframe
           title="Svaparna Clinic Location Map"
           src="https://maps.google.com/maps?q=200%20Sutter%20St%20%23602,%20San%20Francisco,%20CA%2094108&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -46,23 +45,18 @@ export default function Footer({ onBookClick }: FooterProps) {
           referrerPolicy="no-referrer"
         />
 
-        {/* Custom High-Fidelity Floating Search/Map Card Matching Mockup */}
         <div className="absolute left-4 sm:left-8 top-4 z-20 w-[calc(100%-2rem)] sm:w-[360px] bg-white text-left p-4 rounded-lg shadow-md border border-neutral-200/40 select-text font-sans">
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-1">
-              {/* Header Title */}
               <h3 className="text-sm font-bold text-neutral-800 tracking-tight leading-tight select-text">
                 200 Sutter St #602
               </h3>
-              {/* Subtitle / Full Address */}
               <p className="text-xs text-neutral-500/95 leading-relaxed select-text mt-0.5 max-w-[220px]">
                 200 Sutter St #602, San Francisco, CA 94108, USA
               </p>
             </div>
 
-            {/* Quick Action Buttons */}
             <div className="flex items-center space-x-2 shrink-0">
-              {/* Directions Icon (Diamond shape with right-angle arrow) */}
               <a
                 href={directionsUrl}
                 target="_blank"
@@ -75,7 +69,6 @@ export default function Footer({ onBookClick }: FooterProps) {
                 </svg>
               </a>
 
-              {/* View Larger Map Icon */}
               <a
                 href={mapUrl}
                 target="_blank"
@@ -89,21 +82,17 @@ export default function Footer({ onBookClick }: FooterProps) {
           </div>
         </div>
 
-        {/* Custom Red Pin Overlay on the Center of the Map */}
         <div className="absolute left-[50%] top-[45%] lg:left-[51%] md:top-[43%] translate-x-[-50%] translate-y-[-100%] pointer-events-none select-none z-10">
           <div className="relative flex flex-col items-center">
-            {/* Simple realistic map pin layout */}
             <div className="w-9 h-9 rounded-full bg-[#ea4335] text-white flex items-center justify-center border-2 border-white shadow-md animate-bounce-slow">
               <div className="w-2.5 h-2.5 rounded-full bg-white/90" />
             </div>
             <div className="w-2.5 h-2.5 rounded-full bg-black/25 blur-xs mt-0.5" />
           </div>
         </div>
-      </div>
+      </div> */}
 
-      {/* ================= OVERLAPPING PLUM FOOTER BLOCK ================= */}
       <div className="relative w-full bg-primary-brand text-white pb-12 z-20">
-        {/* Responsive Custom Curve Scalloped SVG Overlay on top border */}
         <svg
           className="absolute left-0 right-0 w-full h-[120px] text-primary-brand fill-current pointer-events-none select-none z-10"
           style={{ top: "-119px" }}
@@ -113,10 +102,8 @@ export default function Footer({ onBookClick }: FooterProps) {
           <path d="M0 90 C 200 90, 320 90, 440 90 C 490 90, 510 20, 560 20 L 880 20 C 930 20, 950 90, 1000 90 C 1120 90, 1240 90, 1440 90 L 1440 120 L 0 120 Z" />
         </svg>
 
-        {/* ================= ADDRESS & OPERATING SCHEDULE PLATEAU INTERIOR DATA ================= */}
         <div className="absolute left-0 right-0 top-[-92px] z-20 flex justify-center px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 max-w-4xl text-left text-white px-2 sm:px-6">
-            {/* Address Group */}
             <div className="space-y-0.5 text-center">
               <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
                 ADDRESS
@@ -127,7 +114,6 @@ export default function Footer({ onBookClick }: FooterProps) {
               </p>
             </div>
 
-            {/* Operating Times Group */}
             <div className="space-y-0.5">
               <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
                 OFFICE HOURS
@@ -145,9 +131,11 @@ export default function Footer({ onBookClick }: FooterProps) {
           {/* 1. Header Branding Icon Block */}
           <div className="flex flex-col items-center text-center space-y-4 py-8">
             {/* Serif Display Clinic title name */}
-            <h1 className="font-serif text-3xl sm:text-4xl font-light tracking-[0.06em] text-white">
-              Svaparna
-            </h1>
+            <img
+              src="assets/images/bg-removed-logo.png"
+              alt="Logo"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 w-auto group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
           {/* 3. Comprehensive Multi-column navigation links */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-left pt-12 pb-8">

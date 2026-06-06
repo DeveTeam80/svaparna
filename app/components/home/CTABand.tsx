@@ -24,7 +24,7 @@ export default function CTABand({ onBookClick }: BackToBetterCTAProps) {
   return (
     <section
       id="back-to-better-cta"
-      className="py-16 text-primary-brand flex flex-col items-center justify-between"
+      className="pt-16 text-primary-brand flex flex-col items-center justify-between"
     >
       {/* Light subtle noise or overlay shader with plum and warm white colors */}
 

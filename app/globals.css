@@ -13,10 +13,33 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     background-color: #fffef7;
     color: #631a47;
     font-family: var(--font-sans);
   }
+}
+
+.services-swiper {
+  padding: 20px 10px 30px;
+}
+
+.services-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.services-swiper .swiper-slide {
+  height: auto;
+}
+
+.services-prev,
+.services-next {
+  cursor: pointer;
+}
+
+.services-prev.swiper-button-disabled,
+.services-next.swiper-button-disabled {
+  opacity: 0.4;
 }
