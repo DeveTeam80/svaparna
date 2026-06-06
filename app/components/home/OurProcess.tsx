@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { 
-  Calendar, 
-  ClipboardList, 
-  FileText, 
-  ShieldCheck, 
-  Sparkles, 
+import {
+  Calendar,
+  ClipboardList,
+  FileText,
+  ShieldCheck,
+  Sparkles,
   ArrowRight,
   User,
-  HeartHandshake
+  HeartHandshake,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -35,12 +35,13 @@ export default function OurProcess() {
       badgeText: "DISCOVER",
       title: "Book Your Consultation",
       subtitle: "Online Scheduling",
-      description: "Schedule online with ease. Choose Physiotherapy (India) or holistic Ayurvedic Consultation (Global).",
+      description:
+        "Schedule online with ease. Choose Physiotherapy (India) or holistic Ayurvedic Consultation (Global).",
       colorHex: "#52133a", // deep plum
       badgeBg: "bg-[#52133a]",
       iconBg: "bg-[#52133a]/10 hover:bg-[#52133a]",
       borderDashed: "border-[#52133a]/30 group-hover:border-[#52133a]",
-      icon: <Calendar className="w-7 h-7 text-white" />
+      icon: <Calendar className="w-7 h-7 text-white" />,
     },
     {
       id: 1,
@@ -48,12 +49,13 @@ export default function OurProcess() {
       badgeText: "EVALUATE",
       title: "Initial Assessment",
       subtitle: "1 Hour Comprehensive",
-      description: "A comprehensive 1-on-1 evaluation with Dr. Aparna to understand your history, movement, and medical goals.",
+      description:
+        "A comprehensive 1-on-1 evaluation with Dr. Aparna to understand your history, movement, and medical goals.",
       colorHex: "#844372", // orchid plum
       badgeBg: "bg-[#844372]",
       iconBg: "bg-[#844372]/10 hover:bg-[#844372]",
       borderDashed: "border-[#844372]/30 group-hover:border-[#844372]",
-      icon: <ClipboardList className="w-7 h-7 text-white" />
+      icon: <ClipboardList className="w-7 h-7 text-white" />,
     },
     {
       id: 2,
@@ -61,12 +63,13 @@ export default function OurProcess() {
       badgeText: "STRATEGIZE",
       title: "Personalized Care Plan",
       subtitle: "Evidence-Based Design",
-      description: "A tailored treatment plan with clear medical rationales for every physical exercise and Ayurvedic recommendation.",
+      description:
+        "A tailored treatment plan with clear medical rationales for every physical exercise and Ayurvedic recommendation.",
       colorHex: "#d4af37", // bright gold
       badgeBg: "bg-[#d4af37]",
       iconBg: "bg-[#d4af37]/10 hover:bg-[#d4af37]",
       borderDashed: "border-[#d4af37]/30 group-hover:border-[#d4af37]",
-      icon: <FileText className="w-7 h-7 text-white" />
+      icon: <FileText className="w-7 h-7 text-white" />,
     },
     {
       id: 3,
@@ -74,26 +77,28 @@ export default function OurProcess() {
       badgeText: "RESTORE",
       title: "Ongoing Care",
       subtitle: "45 Mins Dedicated",
-      description: "Consistent follow-up sessions with direct, highly expert physical and spiritual care from Dr. Aparna every single time.",
+      description:
+        "Consistent follow-up sessions with direct, highly expert physical and spiritual care from Dr. Aparna every single time.",
       colorHex: "#c38e1a", // warm amber
       badgeBg: "bg-[#c38e1a]",
       iconBg: "bg-[#c38e1a]/10 hover:bg-[#c38e1a]",
       borderDashed: "border-[#c38e1a]/30 group-hover:border-[#c38e1a]",
-      icon: <HeartHandshake className="w-7 h-7 text-white" />
-    }
+      icon: <HeartHandshake className="w-7 h-7 text-white" />,
+    },
   ];
 
   return (
-    <section id="process" className="py-24 lg:py-32 bg-[#fffef7] overflow-hidden border-t border-primary-brand/5 relative">
-      
+    <section
+      id="process"
+      className="pt-24 lg:pt-20 bg-[#fffef7] overflow-hidden border-t border-primary-brand/5 relative"
+    >
       {/* Background delicate elements mimicking the professional premium style */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-primary-brand/[0.02] rounded-full blur-3xl pointer-events-none -translate-x-1/2" />
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gold-start/[0.02] rounded-full blur-3xl pointer-events-none translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        
         {/* Subtle Luxury Tag */}
-        <motion.div 
+        <motion.div
           className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4 py-1.5 rounded-full mb-5"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +111,7 @@ export default function OurProcess() {
         </motion.div>
 
         {/* Section Headline */}
-        <motion.h2 
+        <motion.h2
           className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +120,7 @@ export default function OurProcess() {
         >
           Your First Visit
         </motion.h2>
-        
+
         {/* <motion.p 
           className="text-neutral-800 text-sm sm:text-base font-light max-w-xl mx-auto mb-20 leading-relaxed"
           initial={{ opacity: 0, y: 15 }}
@@ -128,7 +133,6 @@ export default function OurProcess() {
 
         {/* Process Diagram Box Container */}
         <div className="relative mt-16 pb-12 max-w-6xl mx-auto">
-          
           {/* Desktop connecting dashed line */}
           <div className="hidden lg:block absolute top-[64px] left-[12%] right-[11%] h-[2px] border-t-2 border-dashed border-primary-brand/15 -z-10" />
 
@@ -136,7 +140,7 @@ export default function OurProcess() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 items-start">
             {steps.map((step, index) => {
               const isHovered = hoveredStep === index;
-              
+
               return (
                 <motion.div
                   key={step.id}
@@ -148,7 +152,6 @@ export default function OurProcess() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                 >
-                  
                   {/* Step Serial Label above outer circle */}
                   <span className="text-sm font-bold tracking-widest text-[#a2658d] mb-4 block">
                     {step.num}
@@ -156,36 +159,37 @@ export default function OurProcess() {
 
                   {/* HIGH-FIDELITY CIRCLE SCHEMA (Exactly matching the style layout uploaded in the prompt) */}
                   <div className="relative flex items-center justify-center w-36 h-36">
-                    
                     {/* Rotating Dashed Outer Circle Indicator */}
-                    <div 
+                    <div
                       className={`absolute inset-0 rounded-full border-2 border-dashed transition-all duration-700 ${step.borderDashed} ${
-                        isHovered ? "rotate-45 scale-[1.08]" : "rotate-0 scale-100"
+                        isHovered
+                          ? "rotate-45 scale-[1.08]"
+                          : "rotate-0 scale-100"
                       }`}
                     />
-                    
+
                     {/* Inner Solid Colored Interactive Circle - Be coloured by default with step colors */}
-                    <motion.div 
+                    <motion.div
                       className={`w-28 h-28 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                         isHovered ? "scale-105" : "scale-100"
                       }`}
                       style={{
                         backgroundColor: step.colorHex,
                         border: `1.5px solid ${step.colorHex}25`,
-                        boxShadow: isHovered ? `0 10px 25px -5px ${step.colorHex}50` : "0 4px 12px -2px rgba(82, 19, 58, 0.12)"
+                        boxShadow: isHovered
+                          ? `0 10px 25px -5px ${step.colorHex}50`
+                          : "0 4px 12px -2px rgba(82, 19, 58, 0.12)",
                       }}
                     >
                       {/* React Icon container */}
                       <div className="transition-all duration-300">
                         {step.icon}
                       </div>
-
                     </motion.div>
-
                   </div>
 
                   {/* Badged Step tag under circular indicators (Exactly replicates rectangular color block "DISCOVER" from mock image) */}
-                  <div 
+                  <div
                     className={`text-sm font-bold tracking-[0.25em] text-white px-5.5 py-1.5 uppercase select-none shadow-xs mt-6 transition-all duration-300 rounded-[3px] ${step.badgeBg} ${
                       isHovered ? "scale-105 shadow-md" : "opacity-90"
                     }`}
@@ -202,16 +206,14 @@ export default function OurProcess() {
                   <p className="text-base text-neutral-800 leading-relaxed font-normal max-w-xs mt-3.5 px-4">
                     {step.description}
                   </p>
-
                 </motion.div>
               );
             })}
           </div>
-
         </div>
 
         {/* Dynamic Interactive Call to Action underneath */}
-        <motion.div 
+        <motion.div
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center select-none"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +235,6 @@ export default function OurProcess() {
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button> */}
         </motion.div>
-
       </div>
     </section>
   );
