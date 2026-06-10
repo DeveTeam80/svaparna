@@ -101,8 +101,25 @@ export default function FounderProfile() {
             </h2>
             <p className="text-md text-black">
               {" "}
-              Senior Physiotherapist, Ayurvedic Practitioner & Integrative
-              Health Specialist
+              <div className="flex items-center justify-center gap-3 flex-wrap mb-6">
+                <div
+                  className="h-px w-8"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, #9b6b3a)",
+                  }}
+                />
+
+                <span className="text-xs font-mono uppercase tracking-[0.16em] text-neutral-500">
+                  Senior Physiotherapist · Ayurvedic Practitioner · Integrative
+                  Health Specialist
+                </span>
+                <div
+                  className="h-px w-8"
+                  style={{
+                    background: "linear-gradient(90deg, #9b6b3a, transparent)",
+                  }}
+                />
+              </div>
             </p>
             {/* The Philosophy of Svaparna Core Component Block */}
             {/* <div className="bg-primary-brand/[0.02] border border-primary-brand/10 rounded-3xl p-6 sm:p-8 space-y-3 relative overflow-hidden">
