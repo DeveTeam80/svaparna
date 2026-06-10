@@ -17,9 +17,12 @@ import {
   Waves,
   ClipboardList,
   ArrowRight,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import CTABand from "../components/home/CTABand";
+
+// ─── Data (unchanged) ────────────────────────────────────────────────────────
 
 const credentials = [
   "Post-Graduate Doctor of Physical Therapy (UIC)",
@@ -33,7 +36,7 @@ const credentials = [
 
 const focusAreas = [
   {
-    title: "Musculoskeletal Dysfunction & Chronic Pain",
+    title: "MSK Dysfunction & Pain",
     description:
       "Precise treatment for movement-related pain, recurring injuries, and long-term musculoskeletal conditions.",
     icon: Stethoscope,
@@ -45,25 +48,25 @@ const focusAreas = [
     icon: Waves,
   },
   {
-    title: "Pre & Post-Surgical Rehabilitation",
+    title: "Pelvic Floor Dysfunction",
     description:
       "Structured support to restore mobility, strength, and confidence before and after surgery.",
     icon: ClipboardList,
   },
   {
-    title: "Pelvic Floor Dysfunction",
-    description:
-      "Comprehensive care for pelvic health concerns that affect daily function and quality of life.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Pregnancy & Postpartum Women’s Health",
+    title: "Prenatal & Postpartum Health",
     description:
       "Specialized support during pregnancy, recovery after childbirth, and beyond.",
     icon: HeartHandshake,
   },
   {
-    title: "Clinical Instructor & Pro Bono Service",
+    title: "Pre/Post-Surgery Rehab",
+    description:
+      "Comprehensive care for pelvic health concerns that affect daily function and quality of life.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Teaching & Service",
     description:
       "Clinical instructor for students in community college settings in the USA and free Physiotherapy care through Pro Bono Clinics.",
     icon: Award,
@@ -91,6 +94,32 @@ const expectations = [
   },
 ];
 
+const journeySteps = [
+  {
+    num: "01",
+    title: "Working Alongside Holistic Health Professionals",
+    body: "During my professional journey in the USA, I had the opportunity to work alongside holistic health professionals, including Acupuncturists, Chiropractors, and Naturopaths.",
+  },
+  {
+    num: "02",
+    title: "A Deeper Professional and Personal Interest",
+    body: "This sparked a deep professional and personal interest in understanding different holistic systems of knowledge.",
+  },
+  {
+    num: "03",
+    title: "Formal Ayurvedic Training",
+    body: "I was genuinely impressed with the depth of Ayurvedic science in analyzing the body, mind, and spirit frameworks. After three years of dedicated study at the Kerala Ayurveda Academy in the USA, I became a certified Level 2 Ayurvedic Practitioner.",
+  },
+  {
+    num: "04",
+    title: "An Integrated Approach Today",
+    body: "Today, I work at the intersection of both worlds, bringing evidence-based Physiotherapy and ancient Ayurvedic principles together into a genuinely integrated approach towards health and balance.",
+    highlight: true,
+  },
+];
+
+// ─── Reusable primitives ─────────────────────────────────────────────────────
+
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="inline-flex items-center gap-2 rounded-full border border-primary-brand/10 bg-primary-brand/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.28em] text-primary-brand">
@@ -99,163 +128,164 @@ function SectionLabel({ children }: { children: ReactNode }) {
   );
 }
 
+function SectionDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 py-2">
+      <div className="flex-1 h-px bg-primary-brand/8" />
+      <span className="text-[10px] uppercase tracking-[0.28em] font-bold text-[#9b6b3a] font-mono shrink-0">
+        {label}
+      </span>
+      <div className="flex-1 h-px bg-primary-brand/8" />
+    </div>
+  );
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
+
+// ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[#fffef7] text-primary-brand">
-      {/* Hero */}
-      <section
-        id="about-hero"
-        className="relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pt-32"
-      >
-        {/* Background Effects */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-gold-start/5 blur-3xl" />
-          <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-primary-brand/5 blur-3xl" />
-          <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-gold-start/10 blur-3xl" />
-        </div>
+      {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
+      <section id="about-hero" className="relative pt-28 pb-0 lg:pt-36">
+        {/* Full-bleed top accent bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[3px]"
+          style={{
+            background: "linear-gradient(90deg, #9b6b3a, #631a47, transparent)",
+          }}
+        />
 
         <motion.div
-          className="relative mx-auto max-w-7xl"
-          initial={{ opacity: 0, y: 24 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Heading */}
-          <div className="mx-auto max-w-4xl text-center">
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center mb-10">
             <SectionLabel>About Svaparna Health</SectionLabel>
-
-            <h1 className="mt-6 font-serif text-4xl leading-tight text-primary-brand sm:text-5xl lg:text-7xl">
-              Meet Dr. Aparna Sekhar
-            </h1>
-
-            <p className="mt-4 text-lg text-primary-brand/80 sm:text-xl">
-              PT, DPT, Cert VRS
-            </p>
-
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-neutral-700 sm:text-lg">
-              Senior Physiotherapist, Ayurvedic Practitioner & Integrative
-              Health Specialist
-            </p>
           </div>
 
-          {/* Image + Story */}
-          <motion.div
-            className="mt-16 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.12 } },
-            }}
-          >
-            {/* Image */}
+          {/* Hero headline — editorial large serif */}
+          <div className="text-center mb-6">
+            <h1
+              className="font-serif text-5xl sm:text-6xl lg:text-8xl font-normal text-primary-brand leading-[1.0] tracking-tight"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            >
+              Meet Dr. Aparna
+              <br />
+              <span className="italic">Sekhar</span>
+            </h1>
+          </div>
+
+          {/* Credential subtitle strip */}
+          <div className="flex items-center justify-center gap-3 flex-wrap mb-6">
+            <div
+              className="h-px w-8"
+              style={{
+                background: "linear-gradient(90deg, transparent, #9b6b3a)",
+              }}
+            />
+            <span className="text-sm font-mono uppercase tracking-[0.22em] text-[#9b6b3a] font-bold">
+              PT, DPT, Cert VRS
+            </span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#9b6b3a]/40" />
+            <span className="text-sm font-mono uppercase tracking-[0.16em] text-neutral-500">
+              Senior Physiotherapist · Ayurvedic Practitioner · Integrative
+              Health Specialist
+            </span>
+            <div
+              className="h-px w-8"
+              style={{
+                background: "linear-gradient(90deg, #9b6b3a, transparent)",
+              }}
+            />
+          </div>
+
+          {/* Stats row — full width, typographic */}
+          <div className="border-t border-b border-primary-brand/8 mt-14 py-10 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-primary-brand/8">
+            {[
+              { num: "13+", label: "Years Experience" },
+              { num: "USA", label: "Clinical Practice" },
+              { num: "100%", label: "One-on-One Care" },
+              { num: "2", label: "Healing Disciplines" },
+            ].map((s) => (
+              <div key={s.label} className="text-center px-6 py-4">
+                <div
+                  className="text-3xl sm:text-4xl lg:text-5xl font-normal text-primary-brand leading-none mb-2"
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                >
+                  {s.num}
+                </div>
+                <div className="text-xs uppercase tracking-[0.18em] text-neutral-500 font-mono">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Story — editorial 2-col below stats */}
+        <motion.div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            {/* Left: section label + heading */}
+            <motion.div variants={fadeUp} className="lg:col-span-4">
+              <div className="border-l-2 border-[#9b6b3a] pl-6">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#9b6b3a] font-mono font-bold mb-3">
+                  The Origin
+                </p>
+                <h2
+                  className="font-normal text-3xl sm:text-4xl text-primary-brand leading-tight"
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                >
+                  A New Standard
+                  <br />
+                  of Care
+                </h2>
+              </div>
+            </motion.div>
+
+            {/* Right: story paragraphs */}
             <motion.div
               variants={fadeUp}
-              className="relative mx-auto w-full max-w-md"
+              className="lg:col-span-8 space-y-5 text-base leading-8 text-neutral-700"
             >
-              <div className="group overflow-hidden rounded-[2.5rem]">
-                <img
-                  src="/assets/images/DrAparna.png"
-                  alt="Dr. Aparna Sekhar"
-                  className="aspect-[4/5] w-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105"
-                />
-              </div>
+              <p>
+                Recovery is rarely a straight line. Most people who find their
+                way to Svaparna Health have tried the conventional route. They
+                are not looking for another generic, one-size-fits-all approach.
+                They are looking for someone who will actually listen, look
+                deeper, and treat them as a whole person rather than just a set
+                of symptoms. That is exactly why I built Svaparna Health.
+              </p>
+              <p>That is exactly why I built Svaparna Health.</p>
+              <p>
+                As a Senior Integrative Health Specialist, I believe that true
+                healing requires more than superficial fixes. It requires
+                precise, in-depth, and customized guidance. Here, you are never
+                handed off to an intern or an assistant. You receive 100% of my
+                expertise, 1-on-1, at every single visit.
+              </p>
             </motion.div>
-
-            {/* Content */}
-            <motion.div variants={fadeUp}>
-              <div className="mb-8 border-l-2 border-primary-brand/15 pl-6">
-                <p className="text-xs uppercase tracking-[0.3em] text-primary-brand/60">
-                  1-on-1 Care
-                </p>
-
-                <h2 className="mt-3 font-serif text-3xl text-primary-brand sm:text-4xl">
-                  Every visit is personally led
-                </h2>
-
-                <p className="mt-3 text-neutral-600">
-                  You receive 100% of my expertise, one-on-one, at every single
-                  visit.
-                </p>
-              </div>
-
-              <div className="space-y-5 text-base leading-8 text-neutral-800">
-                <p>
-                  Recovery is rarely a straight line. Most people who find their
-                  way to Svaparna Health have already tried the conventional
-                  route. They are not looking for another generic,
-                  one-size-fits-all approach. They are looking for someone who
-                  will listen, look deeper, and treat them as a whole person
-                  rather than just a set of symptoms.
-                </p>
-
-                <p>That is exactly why I built Svaparna Health.</p>
-
-                <p>
-                  As a Senior Integrative Health Specialist, I believe true
-                  healing requires more than superficial fixes. It requires
-                  precise, in-depth, and customized guidance. Here, you are
-                  never handed off to an intern or an assistant. You receive
-                  100% of my expertise, one-on-one, at every single visit.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Stats */}
-          <div className="mt-16 border-t border-primary-brand/10 pt-12">
-            <div className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
-              <div>
-                <div className="font-serif text-5xl text-primary-brand">
-                  13+
-                </div>
-                <div className="mt-2 text-sm text-neutral-600">
-                  Years Experience
-                </div>
-              </div>
-
-              <div>
-                <div className="font-serif text-5xl text-primary-brand">
-                  USA
-                </div>
-                <div className="mt-2 text-sm text-neutral-600">
-                  Clinical Practice
-                </div>
-              </div>
-
-              <div>
-                <div className="font-serif text-5xl text-primary-brand">
-                  100%
-                </div>
-                <div className="mt-2 text-sm text-neutral-600">
-                  One-on-One Care
-                </div>
-              </div>
-
-              <div>
-                <div className="font-serif text-5xl text-primary-brand">2</div>
-                <div className="mt-2 text-sm text-neutral-600">
-                  Healing Disciplines
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* CTA */}
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {/* CTAs */}
+          <motion.div variants={fadeUp} className="mt-12 flex flex-wrap gap-3">
             <Link
               href="/#consultations"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-start to-gold-end px-6 py-3 text-sm font-semibold text-primary-brand shadow-sm transition-transform hover:scale-[1.02]"
@@ -263,7 +293,6 @@ export default function AboutPage() {
               Book an Appointment
               <ArrowRight className="h-4 w-4" />
             </Link>
-
             <Link
               href="https://wa.me/919892924914?text=Hello%20Dr.%20Aparna%2C%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"
@@ -273,596 +302,429 @@ export default function AboutPage() {
               Chat on WhatsApp
               <MessageCircle className="h-4 w-4" />
             </Link>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Experience & Training */}
-      <section id="experience" className="px-4 py-20 sm:px-6 lg:px-8">
-        <motion.div
-          className="relative mx-auto max-w-7xl rounded-[3rem] border border-primary-brand/10 bg-[#FCFBF8] px-6 pb-16 pt-28 sm:px-10 lg:px-16 lg:pb-24 lg:pt-32"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Top Badge */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-            <div className="flex h-28 w-28 items-center justify-center rounded-full border border-primary-brand/10 bg-white shadow-sm">
-              <Award className="h-10 w-10 text-primary-brand" />
-            </div>
-          </div>
-
-          {/* Header */}
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="text-xs uppercase tracking-[0.3em] text-gold-start">
-              International Pedigree & Clinical Expertise
-            </div>
-
-            <h2 className="mt-6 font-serif text-3xl leading-tight text-primary-brand sm:text-4xl lg:text-5xl">
-              International Clinical Experience Rooted in Evidence-Based Care
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-neutral-700">
-              I am a Doctor of Physical Therapy with more than thirteen years of
-              clinical experience practicing across the United States in
-              outpatient rehabilitation settings. Throughout my career, I have
-              worked with individuals across all age groups, helping them
-              recover from injuries, restore function after surgery, manage
-              chronic conditions, and improve long-term quality of life.
-            </p>
-
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-neutral-700">
-              In addition to my clinical practice, I have served as a Clinical
-              Instructor for students in Community College settings in the USA
-              and partnered with Pro Bono Clinics to provide free Physiotherapy
-              care to those in need.
-            </p>
-          </div>
-
-          {/* Main Layout */}
-          <div className="relative mt-20 grid items-center gap-10 lg:grid-cols-[1fr_1.25fr_1fr] lg:gap-12">
-            {/* LEFT SIDE */}
-            <div className="relative space-y-20 lg:pr-10">
-              <div className="absolute right-[20px] top-0 hidden h-full w-px bg-primary-brand/10 lg:block" />
-
-              {focusAreas.slice(0, 3).map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <motion.div
-                    key={item.title}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-80px" }}
-                    className={`relative ${index === 1 ? "lg:mt-10" : ""}`}
-                  >
-                    <div className="absolute right-[-39px] top-4 hidden h-10 w-10 items-center justify-center rounded-full bg-[#FCFBF8] lg:flex">
-                      <Icon className="h-5 w-5 text-[#4b8078]" />
-                    </div>
-
-                    <div className="max-w-[280px] text-center lg:ml-auto lg:text-right">
-                      <h3 className="font-serif text-2xl leading-tight text-primary-brand">
-                        {item.title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-neutral-700">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* CENTER IMAGE */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="mx-auto w-full max-w-[560px]"
-            >
-              <div className="rounded-[2.75rem] border border-primary-brand/10 bg-white p-8">
-                <div className="rounded-[2.25rem] border border-primary-brand/10 bg-white p-5">
-                  <div className="group overflow-hidden rounded-[1.75rem]">
-                    <img
-                      src="/assets/images/3.jpg"
-                      alt="Dr. Aparna Sekhar"
-                      className="aspect-[4/6] w-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* RIGHT SIDE */}
-            <div className="relative space-y-20 lg:pl-10">
-              <div className="absolute left-[20px] top-0 hidden h-full w-px bg-primary-brand/10 lg:block" />
-
-              {focusAreas.slice(3, 6).map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <motion.div
-                    key={item.title}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-80px" }}
-                    className={`relative ${index === 1 ? "lg:mt-10" : ""}`}
-                  >
-                    <div className="absolute left-[-39px] top-4 hidden h-10 w-10 items-center justify-center rounded-full bg-[#FCFBF8] lg:flex">
-                      <Icon className="h-5 w-5 text-[#4b8078]" />
-                    </div>
-
-                    <div className="max-w-[280px] text-center lg:text-left">
-                      <h3 className="font-serif text-2xl leading-tight text-primary-brand">
-                        {item.title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-neutral-700">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Journey to Ayurveda */}
-      <section id="journey" className="px-4 py-20 sm:px-6 lg:px-8">
-        <motion.div
-          className="mx-auto max-w-7xl"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="text-center">
-            <SectionLabel>The Journey to Ayurveda</SectionLabel>
-
-            <h2 className="mt-5 font-serif text-3xl text-primary-brand sm:text-4xl lg:text-5xl">
-              Discovering the Missing Piece
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            {/* Image */}
-            <motion.div
-              className="lg:sticky lg:top-28"
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="group overflow-hidden rounded-[2.5rem]">
-                <img
-                  src="/assets/images/ayurveda-image.webp"
-                  alt="Holistic consultation setting"
-                  className="aspect-[4/5] w-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105"
-                />
-              </div>
-            </motion.div>
-
-            {/* Timeline */}
-            <div className="relative">
-              <div className="absolute left-[18px] top-0 h-full w-px bg-primary-brand/15" />
-
-              <div className="space-y-14">
-                {/* Step 1 */}
-                <motion.div
-                  className="relative pl-16"
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                >
-                  <div className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary-brand/15 bg-white text-sm font-semibold text-primary-brand">
-                    01
-                  </div>
-
-                  <h3 className="font-serif text-2xl text-primary-brand">
-                    Working Alongside Holistic Health Professionals
-                  </h3>
-
-                  <p className="mt-4 text-base leading-8 text-neutral-800">
-                    During my professional journey in the US, I had the
-                    opportunity to work alongside holistic health professionals,
-                    including Acupuncturists, Chiropractors, and Naturopaths.
-                  </p>
-                </motion.div>
-
-                {/* Step 2 */}
-                <motion.div
-                  className="relative pl-16"
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                >
-                  <div className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary-brand/15 bg-white text-sm font-semibold text-primary-brand">
-                    02
-                  </div>
-
-                  <h3 className="font-serif text-2xl text-primary-brand">
-                    A Deeper Professional and Personal Interest
-                  </h3>
-
-                  <p className="mt-4 text-base leading-8 text-neutral-800">
-                    This sparked a deep professional and personal interest in
-                    understanding different holistic systems of knowledge.
-                  </p>
-                </motion.div>
-
-                {/* Step 3 */}
-                <motion.div
-                  className="relative pl-16"
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                >
-                  <div className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-primary-brand/15 bg-white text-sm font-semibold text-primary-brand">
-                    03
-                  </div>
-
-                  <h3 className="font-serif text-2xl text-primary-brand">
-                    Formal Ayurvedic Training
-                  </h3>
-
-                  <p className="mt-4 text-base leading-8 text-neutral-800">
-                    I was genuinely impressed with the depth of Ayurvedic
-                    science in analyzing the body, mind, and spirit frameworks.
-                    After three years of dedicated study at the Kerala Ayurveda
-                    Academy in the USA, I became a certified Level 2 Ayurvedic
-                    Practitioner.
-                  </p>
-                </motion.div>
-
-                {/* Step 4 */}
-                <motion.div
-                  className="relative pl-16"
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                >
-                  <div className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-gold-start/20 bg-gold-start/10 text-sm font-semibold text-primary-brand">
-                    04
-                  </div>
-
-                  <h3 className="font-serif text-2xl text-primary-brand">
-                    An Integrated Approach Today
-                  </h3>
-
-                  <p className="mt-4 text-base leading-8 text-neutral-800">
-                    Today, I work at the intersection of both worlds, bringing
-                    evidence-based Physiotherapy and ancient Ayurvedic
-                    principles together into a genuinely integrated approach
-                    towards health and balance.
-                  </p>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Philosophy */}
-      <section
-        id="philosophy"
-        className="relative overflow-hidden bg-[#FCFBF8] px-4 py-16 sm:px-6 lg:px-8"
-      >
-        {/* subtle background accents */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-24 top-8 h-72 w-72 rounded-full bg-primary-brand/5 blur-3xl" />
-          <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold-start/10 blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 h-px w-[120%] -translate-x-1/2" />
-          <div className="absolute inset-y-0 left-0 w-px bg-white/60" />
-        </div>
-
-        <motion.div
-          className="relative mx-auto max-w-7xl"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <motion.div
-            className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr]"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.12 } },
-            }}
-          >
-            {/* Left content */}
-            <motion.div variants={fadeUp} className="lg:sticky lg:top-28">
-              <SectionLabel>Our Philosophy</SectionLabel>
-
-              <h2 className="mt-5 max-w-md font-serif text-3xl leading-tight text-primary-brand sm:text-4xl lg:text-5xl">
-                Helping You Return to Your Natural State of Balance
-              </h2>
-
-              <p className="mt-6 max-w-md text-base leading-8 text-neutral-700">
-                It is a reflection of my own name (Aparna) but more importantly,
-                it is the foundational philosophy for my clients: helping you
-                return to your true self (SVA-RUPA) and achieve a state of
-                lasting holistic balance. If you are motivated to actively
-                improve your well-being, ready to be genuinely understood, and
-                systematically guided, you are in the right place.
-              </p>
-            </motion.div>
-
-            {/* Right visual narrative */}
-            <motion.div variants={fadeUp} className="group relative">
-              {" "}
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-primary-brand/10 bg-white/80 shadow-sm">
-                {/* image */}
-                <div className="relative min-h-[560px] overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105"
-                    style={{
-                      backgroundImage: "url('/assets/images/handShake.jpg')",
-                    }}
-                  />{" "}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-[#FCFBF8]/20 to-[#FCFBF8]/92" />
-                </div>
-
-                {/* top quote */}
-                <div className="absolute left-1/2 top-8 w-[calc(100%-2rem)] -translate-x-1/2 sm:top-10 sm:w-[88%]">
-                  <div className="mx-auto max-w-2xl rounded-[2rem] border border-white/70 bg-white/78 px-6 py-6 shadow-sm backdrop-blur-md sm:px-8 sm:py-7">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-brand/5 text-primary-brand">
-                        <Sparkles className="h-5 w-5" />
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.3em] text-primary-brand/55">
-                          Guiding Principle
-                        </p>
-                        <p className="mt-3 max-w-xl font-serif text-[1.45rem] leading-[1.35] text-primary-brand sm:text-[1.5rem]">
-                          SVAPARNA (स्वपर्णा) is a Sanskrit word meaning
-                          self-sustaining and needing nothing external to
-                          thrive.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* bottom principles strip */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#FCFBF8] via-[#FCFBF8]/96 to-transparent px-6 pb-8 pt-24 sm:px-8 sm:pb-9">
-                  <div className="mx-auto max-w-4xl">
-                    <div className="grid gap-4 md:grid-cols-3 md:divide-x md:divide-primary-brand/10">
-                      <div className="flex items-start gap-3 md:pr-6">
-                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-                          <HeartPulse className="h-4 w-4 text-[#4b8078]" />
-                        </div>
-                        <p className="text-sm leading-7 text-neutral-800">
-                          Self-sustaining and needing nothing external to
-                          thrive.
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3 md:px-6">
-                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-                          <Leaf className="h-4 w-4 text-[#4b8078]" />
-                        </div>
-                        <p className="text-sm leading-7 text-neutral-800">
-                          Helping you return to your true self.
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3 md:pl-6">
-                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-                          <ShieldCheck className="h-4 w-4 text-[#4b8078]" />
-                        </div>
-                        <p className="text-sm leading-7 text-neutral-800">
-                          A state of lasting holistic balance.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Credentials */}
-      <section id="credentials" className="px-4 py-20 sm:px-6 lg:px-8">
-        <motion.div
-          className="mx-auto max-w-7xl"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Header */}
-          <div className="mx-auto max-w-4xl text-center">
-            <SectionLabel>Credentials & Certifications</SectionLabel>
+      {/* ── 2. EXPERIENCE & TRAINING ─────────────────────────────────────── */}
+      <section id="experience" className="bg-[#fbf5f9] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionDivider label="Experience & Training" />
 
-            <h2 className="mt-5 font-serif text-3xl leading-tight text-primary-brand sm:text-4xl lg:text-5xl">
-              Advanced Training Across Modern Rehabilitation & Ayurveda
-            </h2>
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Heading */}
+            <div className="max-w-3xl mb-10">
+              <div className="flex items-center gap-3 mb-5">
+                <SectionLabel>
+                  International Pedigree & Clinical Expertise
+                </SectionLabel>
+              </div>
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-normal text-primary-brand leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+              >
+                International Pedigree &amp; Clinical Expertise
+              </h2>
+            </div>
 
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-neutral-700">
-              Combining international physiotherapy expertise with specialized
-              Ayurvedic training to provide a truly integrative approach to
-              health, recovery, and long-term well-being.
+            {/* Body text */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 pb-16 border-b border-primary-brand/8">
+              <p className="text-base leading-8 text-neutral-700">
+                I am a Doctor of Physical Therapy (Physiotherapy) with over 13
+                years of clinical experience practicing across the United States
+                in outpatient rehabilitation. Throughout my career, I have
+                successfully worked with clients of all age-groups, guiding them
+                through everything from acute injury recovery to complex,
+                long-term conditions.
+              </p>
+              <p className="text-base leading-8 text-neutral-700">
+                In addition to my clinical practice, I have served as a Clinical
+                Instructor for students in Community College settings in the USA
+                and partnered with Pro Bono Clinics to provide free
+                Physiotherapy care to those in need.
+              </p>
+            </div>
+
+            {/* Focus areas — numbered 2-col grid, no images */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              {focusAreas.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.07 }}
+                    className="flex items-start gap-6 py-7 border-b border-primary-brand/8
+                               md:odd:border-r md:odd:pr-12 md:even:pl-12"
+                  >
+                    {/* Large muted number */}
+                    <span
+                      className="shrink-0 leading-none font-light select-none w-14 text-right pt-1"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontSize: "2.5rem",
+                        color: "rgba(99,26,71,0.10)",
+                      }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Icon className="w-4 h-4 text-[#9b6b3a] shrink-0" />
+                        <h3
+                          className="text-xl font-normal text-primary-brand leading-snug"
+                          style={{
+                            fontFamily: "'Cormorant Garamond', Georgia, serif",
+                          }}
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-neutral-600 leading-7">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 3. JOURNEY TO AYURVEDA ───────────────────────────────────────── */}
+      <section id="journey" className="bg-white py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionDivider label="The Journey to Ayurveda" />
+
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="mb-12">
+              <SectionLabel>The Journey to Ayurveda</SectionLabel>
+              <h2
+                className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary-brand leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+              >
+                Discovering the Missing Piece
+              </h2>
+            </div>
+
+            {/* Steps — large number + content */}
+            <div className="space-y-0">
+              {journeySteps.map((step, index) => (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 border-b border-primary-brand/8 ${
+                    step.highlight
+                      ? "bg-[#fbf5f9] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+                      : ""
+                  }`}
+                >
+                  {/* Giant number */}
+                  <div className="lg:col-span-2 flex items-start">
+                    <span
+                      className="font-light leading-none select-none"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontSize: "clamp(3rem, 6vw, 5rem)",
+                        color: step.highlight
+                          ? "#631a47"
+                          : "rgba(99,26,71,0.12)",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {step.num}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="lg:col-span-10">
+                    <h3
+                      className="text-2xl sm:text-3xl font-normal text-primary-brand leading-snug mb-4"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-base leading-8 text-neutral-700 max-w-3xl">
+                      {step.body}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 4. PHILOSOPHY ────────────────────────────────────────────────── */}
+      <section
+        id="philosophy"
+        className="bg-[#1a0d14] py-20 sm:py-28 relative overflow-hidden"
+      >
+        {/* Decorative ambient */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 50%, #631a47 0%, transparent 60%), radial-gradient(circle at 80% 30%, #9b6b3a 0%, transparent 55%)",
+          }}
+        />
+
+        {/* Top accent */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[2px]"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #9b6b3a, #631a47, transparent)",
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Label */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.28em] text-white/60 mb-8">
+                Our Philosophy
+              </div>
+
+              <h2
+                className="text-3xl sm:text-4xl lg:text-6xl font-normal text-white leading-tight tracking-tight max-w-4xl mx-auto"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+              >
+                Helping You Return to Your Natural State of Balance
+              </h2>
+            </div>
+
+            {/* Pull-quote — SVAPARNA */}
+            <div
+              className="max-w-3xl mx-auto border border-white/12 rounded-none p-8 sm:p-12 mb-14"
+              style={{ background: "rgba(255,255,255,0.04)" }}
+            >
+              <div className="flex items-start gap-5">
+                <Sparkles className="w-5 h-5 text-[#9b6b3a] shrink-0 mt-1" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-white/40 font-mono font-bold mb-4">
+                    Guiding Principle
+                  </p>
+                  <p
+                    className="text-white text-xl sm:text-2xl leading-relaxed font-normal"
+                    style={{
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    SVAPARNA (स्वपर्णा) is a Sanskrit word meaning
+                    self-sustaining and needing nothing external to thrive.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Philosophy body */}
+            <p className="text-white/65 text-base leading-8 max-w-3xl mx-auto text-center mb-14">
+              It is a reflection of my own name (Aparna) but more importantly,
+              it is the foundational philosophy for my clients: helping you
+              return to your true self (SVA-RUPA) and achieve a state of lasting
+              holistic balance. If you are motivated to actively improve your
+              well-being, ready to be genuinely understood, and systematically
+              guided, you are in the right place.
             </p>
-          </div>
 
-          {/* Main Layout */}
-          <div className="relative mt-20">
-            {/* Center Connector */}
-            <div className="absolute left-1/2 top-0 hidden h-full -translate-x-1/2 lg:block">
-              <div className="h-full w-px bg-gradient-to-b from-transparent via-primary-brand/15 to-transparent" />
+            {/* 3 principles — horizontal strips on dark */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/8">
+              {[
+                {
+                  icon: HeartPulse,
+                  text: "Self-sustaining and needing nothing external to thrive.",
+                },
+                { icon: Leaf, text: "Helping you return to your true self." },
+                {
+                  icon: ShieldCheck,
+                  text: "A state of lasting holistic balance.",
+                },
+              ].map((p, i) => {
+                const Icon = p.icon;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-start gap-4 p-7 sm:p-8"
+                    style={{ background: "rgba(26,13,20,0.85)" }}
+                  >
+                    <div className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 text-[#9b6b3a]" />
+                    </div>
+                    <p className="text-sm text-white/60 leading-7">{p.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 5. CREDENTIALS ───────────────────────────────────────────────── */}
+      <section id="credentials" className="bg-[#fffef7] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionDivider label="Credentials & Certifications" />
+
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <SectionLabel>Credentials & Certifications</SectionLabel>
+              <h2
+                className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary-brand leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+              >
+                Advanced Training Across Modern Rehabilitation &amp; Ayurveda
+              </h2>
+              <p className="mt-6 text-base leading-8 text-neutral-700">
+                Combining international physiotherapy expertise with specialized
+                Ayurvedic training to provide a truly integrative approach to
+                health, recovery, and long-term well-being.
+              </p>
             </div>
 
-            <div className="grid gap-12 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-              {/* Physiotherapy Side */}
-              <motion.div
-                initial={{ opacity: 0, x: -36 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7 }}
-                whileHover={{ y: -8 }}
-                className="group relative overflow-hidden rounded-[2.5rem] border border-primary-brand/10 bg-white/90 p-8 backdrop-blur-sm transition-all duration-500"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-20 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-30"
-                  style={{
-                    backgroundImage: "url('/assets/images/2.jpg')",
-                  }}
-                />
-
-                <div
-                  className="absolute inset-0 bg-white/30"
-                  aria-hidden="true"
-                />
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-brand/5">
-                      <HeartPulse className="h-7 w-7 text-[#4b8078]" />
-                    </div>
-
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-primary-brand/50">
-                        Modern Rehabilitation
-                      </p>
-
-                      <h3 className="mt-1 font-serif text-3xl text-primary-brand">
-                        Physiotherapy
-                      </h3>
-                    </div>
+            {/* Two columns with center plus */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] gap-0 items-start">
+              {/* Physiotherapy */}
+              <div className="border border-primary-brand/8 p-8 sm:p-10">
+                <div className="flex items-center gap-3 mb-8 pb-6 border-b border-primary-brand/8">
+                  <div className="w-12 h-12 rounded-xl border border-primary-brand/10 flex items-center justify-center bg-primary-brand/3">
+                    <HeartPulse className="w-5 h-5 text-[#4b8078]" />
                   </div>
-
-                  <div className="mt-8 space-y-4">
-                    {credentials
-                      .slice(0, Math.ceil(credentials.length / 2))
-                      .map((item, index) => (
-                        <motion.div
-                          key={item}
-                          initial={{ opacity: 0, y: 14 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-80px" }}
-                          transition={{ duration: 0.35, delay: index * 0.04 }}
-                          className="flex items-start gap-3 border-b border-primary-brand/10 pb-4"
-                        >
-                          <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#4b8078]" />
-
-                          <p className="text-sm leading-7 text-neutral-700">
-                            {item}
-                          </p>
-                        </motion.div>
-                      ))}
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-[#9b6b3a] font-mono font-bold">
+                      Modern Rehabilitation
+                    </p>
+                    <h3
+                      className="text-2xl font-normal text-primary-brand"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
+                      Physiotherapy
+                    </h3>
                   </div>
                 </div>
-              </motion.div>
+                <div className="space-y-4">
+                  {credentials
+                    .slice(0, Math.ceil(credentials.length / 2))
+                    .map((item, index) => (
+                      <motion.div
+                        key={item}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="flex items-start gap-3 pb-4 border-b border-primary-brand/6 last:border-0 last:pb-0"
+                      >
+                        <CheckCircle2 className="mt-0.5 w-4 h-4 shrink-0 text-[#4b8078]" />
+                        <p className="text-sm leading-7 text-neutral-700">
+                          {item}
+                        </p>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
 
-              {/* Center Circle */}
-              <motion.div
-                className="relative flex justify-center"
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7 }}
-              >
-                <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-primary-brand/10 bg-gradient-to-br from-white to-primary-brand/[0.03] shadow-sm">
-                  <div className="absolute inset-3 rounded-full border border-primary-brand/10" />
-
-                  <div className="text-center">
-                    <div className="font-serif text-5xl text-primary-brand">
+              {/* Center "+" */}
+              <div className="hidden lg:flex flex-col items-center justify-center py-10 self-stretch">
+                <div className="h-full w-px bg-primary-brand/8 relative flex flex-col items-center justify-center">
+                  <div className="bg-[#fffef7] border border-primary-brand/10 w-12 h-12 rounded-full flex items-center justify-center">
+                    <span
+                      className="text-2xl font-light text-primary-brand"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
                       +
-                    </div>
+                    </span>
+                  </div>
+                  <p className="absolute bottom-4 text-[9px] uppercase tracking-[0.2em] text-primary-brand/40 font-mono rotate-90 translate-x-8 whitespace-nowrap">
+                    Integrated
+                  </p>
+                </div>
+              </div>
 
-                    <div className="mt-1 text-xs uppercase tracking-[0.24em] text-primary-brand/60">
-                      Integrated
-                    </div>
+              {/* Ayurveda */}
+              <div className="border border-primary-brand/8 border-l-0 lg:border-l-0 p-8 sm:p-10">
+                <div className="flex items-center gap-3 mb-8 pb-6 border-b border-primary-brand/8">
+                  <div className="w-12 h-12 rounded-xl border border-primary-brand/10 flex items-center justify-center bg-primary-brand/3">
+                    <Leaf className="w-5 h-5 text-[#4b8078]" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-[#9b6b3a] font-mono font-bold">
+                      Holistic Healing
+                    </p>
+                    <h3
+                      className="text-2xl font-normal text-primary-brand"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
+                      Ayurveda
+                    </h3>
                   </div>
                 </div>
-              </motion.div>
-
-              {/* Ayurveda Side */}
-              <motion.div
-                initial={{ opacity: 0, x: 36 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7 }}
-                whileHover={{ y: -8 }}
-                className="group relative overflow-hidden rounded-[2.5rem] border border-primary-brand/10 bg-white/90 p-8 backdrop-blur-sm transition-all duration-500"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-20 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-30"
-                  style={{
-                    backgroundImage: "url('/assets/images/ayurveda.jpg')",
-                  }}
-                />
-
-                <div
-                  className="absolute inset-0 bg-white/30"
-                  aria-hidden="true"
-                />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-brand/5">
-                      <Leaf className="h-7 w-7 text-[#4b8078]" />
-                    </div>
-
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-primary-brand/50">
-                        Holistic Healing
-                      </p>
-
-                      <h3 className="mt-1 font-serif text-3xl text-primary-brand">
-                        Ayurveda
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 space-y-4">
-                    {credentials
-                      .slice(Math.ceil(credentials.length / 2))
-                      .map((item, index) => (
-                        <motion.div
-                          key={item}
-                          initial={{ opacity: 0, y: 14 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-80px" }}
-                          transition={{ duration: 0.35, delay: index * 0.04 }}
-                          className="flex items-start gap-3 border-b border-primary-brand/10 pb-4"
-                        >
-                          <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#4b8078]" />
-
-                          <p className="text-sm leading-7 text-neutral-700">
-                            {item}
-                          </p>
-                        </motion.div>
-                      ))}
-                  </div>
+                <div className="space-y-4">
+                  {credentials
+                    .slice(Math.ceil(credentials.length / 2))
+                    .map((item, index) => (
+                      <motion.div
+                        key={item}
+                        initial={{ opacity: 0, x: 10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="flex items-start gap-3 pb-4 border-b border-primary-brand/6 last:border-0 last:pb-0"
+                      >
+                        <CheckCircle2 className="mt-0.5 w-4 h-4 shrink-0 text-[#4b8078]" />
+                        <p className="text-sm leading-7 text-neutral-700">
+                          {item}
+                        </p>
+                      </motion.div>
+                    ))}
                 </div>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Bottom Statement */}
-            <div className="mx-auto mt-14 max-w-4xl text-center">
+            {/* Bottom statement */}
+            <div className="mt-12 text-center">
               <div className="inline-flex items-center gap-3 rounded-full border border-primary-brand/10 bg-white px-6 py-3 shadow-sm">
                 <Sparkles className="h-4 w-4 text-[#4b8078]" />
-
                 <span className="text-sm font-medium text-primary-brand">
                   Evidence-Based Rehabilitation + Ayurvedic Wisdom
                 </span>
               </div>
-
               <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-neutral-700">
                 The integration of these disciplines allows for a personalized
                 treatment approach that addresses not only symptoms, but the
@@ -870,56 +732,96 @@ export default function AboutPage() {
                 health.
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
-      {/* What to Expect */}
-      <section id="expectations" className="px-4 py-16 sm:px-6 lg:px-8">
-        <motion.div
-          className="mx-auto max-w-7xl"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <SectionLabel>The Svaparna Experience</SectionLabel>
-          <h2 className="mt-5 font-serif text-3xl sm:text-4xl lg:text-5xl">
-            Care That Is Entirely Focused on You
-          </h2>
+      {/* ── 6. WHAT TO EXPECT ────────────────────────────────────────────── */}
+      <section id="expectations" className="bg-[#fbf5f9] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionDivider label="The Svaparna Experience" />
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {expectations.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.4, delay: index * 0.06 }}
-                  whileHover={{ y: -6 }}
-                  className="rounded-[2rem] border border-primary-brand/10 bg-white/85 p-6 shadow-sm"
-                >
-                  <div className="flex items-baseline gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-brand/5 text-primary-brand">
-                      <Icon className="h-6 w-6" />
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="mb-12">
+              <SectionLabel>The Svaparna Experience</SectionLabel>
+              <h2
+                className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary-brand leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+              >
+                Care That Is Entirely Focused on You
+              </h2>
+            </div>
+
+            {/* Full-width horizontal strips — not cards */}
+            <div className="border-t border-primary-brand/8">
+              {expectations.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 border-b border-primary-brand/8
+                               group hover:bg-white/60 transition-colors duration-300
+                               -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+                  >
+                    {/* Number + icon */}
+                    <div className="lg:col-span-2 flex items-center gap-4">
+                      <span
+                        className="font-light leading-none select-none"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', Georgia, serif",
+                          fontSize: "2.5rem",
+                          color: "rgba(99,26,71,0.12)",
+                        }}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-10 h-10 rounded-full border border-primary-brand/10 flex items-center justify-center shrink-0 bg-white">
+                        <Icon className="w-4 h-4 text-[#4b8078]" />
+                      </div>
                     </div>
-                    <h3 className="mt-5 font-serif text-2xl text-primary-brand">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-7 text-neutral-800">
-                    {item.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+
+                    {/* Title */}
+                    <div className="lg:col-span-4 flex items-center">
+                      <h3
+                        className="text-2xl sm:text-3xl font-normal text-primary-brand leading-tight"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    {/* Separator */}
+                    <div className="hidden lg:flex lg:col-span-1 items-center justify-center">
+                      <div className="h-full w-px bg-primary-brand/8" />
+                    </div>
+
+                    {/* Description */}
+                    <div className="lg:col-span-5 flex items-center">
+                      <p className="text-base text-neutral-600 leading-7">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      {/* CTA */}
+      {/* ── 7. CTA BAND (unchanged) ──────────────────────────────────────── */}
       <CTABand
         title="Ready to Start Your Recovery?"
         description="Book an online Physiotherapy consultation in India, or an online Ayurveda consultation from anywhere in the world. In person appointments are coming soon!"

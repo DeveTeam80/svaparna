@@ -28,12 +28,11 @@ export default function ConsultationSelectorSection({
       status: "active",
       badgeColor: "bg-indigo-50 text-indigo-900 border-indigo-100",
       title: "Online Consultations (India)",
-      description:
-        "Virtual Physiotherapy and Integrative Ayurveda Care delivered securely across India.",
+      description: "Virtual Physiotherapy  delivered securely across India.",
       features: [
         "Virtual movement & musculoskeletal analysis",
         "Guided home-rehabilitation exercise plans",
-        "Integrated Ayurvedic wellness counseling",
+        "Integrated Ayurvedic counseling",
       ],
       icon: <Laptop className="w-5 h-5 text-gold-start" />,
       buttonText: "Explore India Services",
@@ -54,16 +53,16 @@ export default function ConsultationSelectorSection({
       status: "active",
       badgeColor:
         "bg-emerald-55 bg-primary-brand/10 text-primary-brand border-primary-brand/10",
-      title: "Online Consultations (Global / US)",
+      title: "Online Consultations (USA)",
       description:
-        "USA-certified Ayurvedic wellness and lifestyle coaching from anywhere in the world.",
+        "USA-certified Ayurvedic care and lifestyle coaching accross usa.",
       features: [
         "In-depth Prakrti (constitution) analysis",
         "Personalized dietary & lifestyle design",
         "Holistic herbal & supplement recommendations",
       ],
       icon: <Globe className="w-5 h-5 text-gold-start" />,
-      buttonText: "Explore Global Services",
+      buttonText: "Explore USA Services",
       action: () => {
         onSelectType("online");
         const el = document.getElementById("booking-modal-overlay");
@@ -83,10 +82,10 @@ export default function ConsultationSelectorSection({
       badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
       title: "Offline Consultations (Mumbai)",
       description:
-        "Physiotherapy and Integrative Ayurveda Care in person at Our flagship Physical clinic.",
+        "Physiotherapy and Integrative Ayurvedic Care in person at Our Physical clinic.",
       features: [
-        "Comprehensive 1-on-1 physical assessment",
-        "Evidence-based manual therapy & rehab",
+        "Comprehensive 1-on-1 assessment",
+        "Evidence-based in person care",
         "Integrated Ayurvedic healing protocols",
       ],
       icon: <Landmark className="w-5 h-5 text-gold-start" />,
@@ -107,29 +106,16 @@ export default function ConsultationSelectorSection({
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary-brand/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* Decorative Luxury Tag */}
-        <motion.div
-          className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4.5 py-1.5 rounded-full mb-5"
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
-            CONSULTANCY TYPES
-          </span>
-        </motion.div>
-
-        {/* Section Title */}
-        <motion.h2
-          className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight mb-4"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          Select Your Consultation Type
-        </motion.h2>
+        <div className="text-center max-w-4xl mx-auto space-y-4 mb-20">
+          <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4.5 py-1.5 rounded-full">
+            <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
+              Choose Your Care{" "}
+            </span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
+            CONSULTATION &nbsp; PATHWAYS
+          </h2>
+        </div>
 
         {/* <motion.p 
           className="text-base text-neutral-800 leading-relaxed font-normal max-w-xl mx-auto mb-16"

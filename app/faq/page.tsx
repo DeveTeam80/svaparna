@@ -73,7 +73,7 @@ const faqs: FaqItem[] = [
   {
     question: "Why see a specialist like Dr Aparna for your diagnosis?",
     answer:
-      "Most people resort to costly surgeries or invasive options when a lot of support towards healing can be provided through conservative approaches like the integrative care offered at Svaparna Health. Dr Aparna’s clinical and holistic expertise provides the perfect blend to help you resolve your concerns and improve the quality of your life. Dr. Aparna takes the time to truly listen to you and craft an individualized protocol for each person based on their conditions. Her 13+ years of US based rigorous training and experience guarantee an international standard of care.",
+      "Most people resort to costly surgeries or invasive options when a lot of support towards healing can be provided through conservative approaches like the integrative care offered at Svaparna Health. Dr Aparna’s clinical and holistic expertise provides the perfect blend to help you resolve your concerns and improve the quality of your life. Dr. Aparna takes the time to truly listen to you and craft an individualized protocol for each person based on their conditions. Her 13+ years of USA based rigorous training and experience guarantee an international standard of care.",
   },
   {
     question: "Will I experience any pain during the session?",
@@ -100,7 +100,7 @@ const faqs: FaqItem[] = [
   },
   {
     question: "What payment methods are accepted?",
-    answer: "Cash, UPI for Indian clients and PayPal for US clients",
+    answer: "Cash, UPI for Indian clients and PayPal for USA clients",
   },
 ];
 

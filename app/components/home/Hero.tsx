@@ -84,7 +84,7 @@ export default function Hero({
         </div>
 
         {/* --- ANIMATED BEZIER SCURVE DIVIDER AND FEATURE BADGES --- */}
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-0 left-0 right-0 w-full z-20 pointer-events-none select-none"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,9 +102,7 @@ export default function Hero({
             <path d="M370 120 C405 120 420 10 450 10 H750 C780 10 795 120 830 120 Z" />
           </svg>
 
-          {/* Real Grid for Feature Badges */}
           <div className="absolute inset-x-0 bottom-1 pointer-events-auto flex flex-col items-center justify-end">
-            {/* Top Badge */}
             <div className="flex flex-col items-center justify-center w-full">
               <div className="flex items-center space-x-1.5 px-4 py-1.5 md:py-2 bg-white backdrop-blur-md rounded-full shadow-xs border border-primary-brand/5 max-w-xs sm:max-w-md md:-translate-y-2 lg:-translate-y-4">
                 <Plus className="w-3.5 h-3.5 text-primary-brand animate-pulse" />
@@ -113,7 +111,6 @@ export default function Hero({
                 </span>
               </div>
 
-              {/* Lower Badges Side-by-Side */}
               <div className="flex items-center justify-center space-x-2 sm:space-x-12 mt-1 md:mt-2 w-full px-4 overflow-x-auto no-scrollbar">
                 <div className="flex items-center space-x-1.5">
                   <Plus className="w-3.5 h-3.5 text-primary-brand/80" />
@@ -130,7 +127,7 @@ export default function Hero({
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );

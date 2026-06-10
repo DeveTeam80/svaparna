@@ -36,7 +36,7 @@ export default function OurProcess() {
       title: "Book Your Consultation",
       subtitle: "Online Scheduling",
       description:
-        "Schedule online with ease. Choose Physiotherapy (India) or holistic Ayurvedic Consultation (Global).",
+        " Online Physiotherapy (India), Online Ayurvedic Consultations from anywhere - USA, India, e.t.c, or In-Person Consultations in Mumbai (Coming Soon).",
       colorHex: "#52133a", // deep plum
       badgeBg: "bg-[#52133a]",
       iconBg: "bg-[#52133a]/10 hover:bg-[#52133a]",
@@ -50,7 +50,7 @@ export default function OurProcess() {
       title: "Initial Assessment",
       subtitle: "1 Hour Comprehensive",
       description:
-        "A comprehensive 1-on-1 evaluation with Dr. Aparna to understand your history, movement, and medical goals.",
+        "A comprehensive 1-on-1 evaluation with Dr. Aparna to understand assess any imbalance and analyse goals.",
       colorHex: "#844372", // orchid plum
       badgeBg: "bg-[#844372]",
       iconBg: "bg-[#844372]/10 hover:bg-[#844372]",
@@ -64,7 +64,7 @@ export default function OurProcess() {
       title: "Personalized Care Plan",
       subtitle: "Evidence-Based Design",
       description:
-        "A tailored treatment plan with clear medical rationales for every physical exercise and Ayurvedic recommendation.",
+        "A tailored treatment care with clear rationales for every physical exercise and Ayurvedic recommendation.",
       colorHex: "#d4af37", // bright gold
       badgeBg: "bg-[#d4af37]",
       iconBg: "bg-[#d4af37]/10 hover:bg-[#d4af37]",
@@ -78,7 +78,7 @@ export default function OurProcess() {
       title: "Ongoing Care",
       subtitle: "45 Mins Dedicated",
       description:
-        "Consistent follow-up sessions with direct, highly expert physical and spiritual care from Dr. Aparna every single time.",
+        "Consistent follow-up sessions with Dr. Aparna experties every single time.",
       colorHex: "#c38e1a", // warm amber
       badgeBg: "bg-[#c38e1a]",
       iconBg: "bg-[#c38e1a]/10 hover:bg-[#c38e1a]",

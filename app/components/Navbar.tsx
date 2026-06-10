@@ -49,7 +49,7 @@ export default function Navbar({ navItems, onBookClick }: NavbarProps) {
         navVisible ? "translate-y-0" : "-translate-y-full pointer-events-none"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <div className="flex items-center justify-between h-14">
           {/* Logo Brand Brand Section */}
           <Link
@@ -57,11 +57,12 @@ export default function Navbar({ navItems, onBookClick }: NavbarProps) {
             href="/"
             className="flex items-center space-x-2 group focus:outline-hidden"
           >
-            {/* Custom SVG logo mimicking Svaparna (Self-Leaf / Health Flower) */}
             <img
               src="assets/images/logo-white.png"
               alt="Logo"
-              className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 w-auto group-hover:scale-105 transition-transform duration-300"
+              className={`w-auto group-hover:scale-105 transition-all duration-300 ${
+                isSticky ? "h-20" : "h-10 sm:h-12 md:h-14 lg:h-16 xl:h-24"
+              }`}
             />
           </Link>
 
@@ -72,7 +73,7 @@ export default function Navbar({ navItems, onBookClick }: NavbarProps) {
                 key={item.label}
                 id={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                 href={item.href}
-                className="px-3.5 py-2 rounded-full text-sm font-medium text-primary-brand/80 hover:text-primary-brand hover:bg-primary-brand/5 transition-colors"
+                className="px-3.5 py-2 rounded-full text-lg font-medium text-primary-brand/80 hover:text-primary-brand hover:bg-primary-brand/5 transition-colors"
                 referrerPolicy="no-referrer"
               >
                 {item.label}

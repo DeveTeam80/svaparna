@@ -41,10 +41,10 @@ export default function Home() {
       <CTABand
         title="Let's Get You Back to Better"
         description="We take pride in delivering highly personalized physical therapy."
-        image="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2100"
+        image="assets/images/cta-img.png"
         buttons={[
           {
-            label: "Book a Free Consultation",
+            label: "Book a Consultation",
             href: "#",
             icon: <Calendar className="h-4 w-4" />,
             variant: "primary",
