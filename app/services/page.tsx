@@ -193,7 +193,7 @@ const ayurvedaItems: ServiceItem[] = [
   {
     title: "Holistic Modalities",
     description:
-      "Customized recommendations incorporating yoga, pranayama (breathwork), and specific Ayurveda formulations and herbs to accelerate your recovery and support overall well-being.",
+      "Customized recommendations incorporating yoga, pranayama (breathwork), and specific Ayurvedic formulations and herbs to accelerate your recovery and support overall well-being.",
     icon: Leaf,
   },
 ];
@@ -202,7 +202,7 @@ const pathways: PathwayItem[] = [
   {
     title: "In-Clinic Care (India)",
     description:
-      "Experience our full spectrum of hands-on Physiotherapy and Integrative Ayurveda Care at our clinic.",
+      "Experience our full spectrum of hands-on Physiotherapy and Integrative Ayurvedic Care at our clinic.",
     href: "/consultations/offline-india",
     cta: "Explore Offline Consultations (India)",
     note: "Coming Soon! We are in the process of constructing an integrative health clinic space to host our patients.",
@@ -218,11 +218,11 @@ const pathways: PathwayItem[] = [
     icon: Waves,
   },
   {
-    title: "Global Wellness (International / US)",
+    title: "Global Care (International / USA)",
     description:
-      "Access Ayurvedic lifestyle coaching, diet, and holistic recommendations from anywhere in the world.",
+      "Access Ayurvedic lifestyle coaching, diet, and holistic recommendations across usa .",
     href: "#",
-    cta: "Explore Online Consultations (Global)",
+    cta: "Explore Online Consultations (USA)",
     icon: Sparkles,
   },
 ];
@@ -400,7 +400,7 @@ export default function ServicesPage() {
             <div className="group overflow-hidden rounded-[2.5rem] border border-primary-brand/10 bg-white shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1600"
-                alt="Ayurvedic wellness"
+                alt="Ayurvedic care"
                 className="aspect-[4/5] w-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105"
                 referrerPolicy="no-referrer"
               />

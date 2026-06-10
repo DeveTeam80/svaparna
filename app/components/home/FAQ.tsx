@@ -18,7 +18,7 @@ export default function FAQ() {
       id: 0,
       question: "Why see a specialist like Dr. Aparna for your diagnosis?",
       answer:
-        "Most people resort to costly surgeries or invasive options when significant recovery can often be achieved through conservative, integrative care. At Svaparna Health, Dr. Aparna combines clinical expertise with a holistic approach to help address the root cause of your concerns and improve your quality of life. She takes the time to truly listen, understand your needs, and develop an individualized treatment protocol. With over 13 years of rigorous US-based training and experience, she provides an international standard of care.",
+        "Most people resort to costly surgeries or invasive options when significant recovery can often be achieved through conservative, integrative care. At Svaparna Health, Dr. Aparna combines clinical expertise with a holistic approach to help address the root cause of your concerns and improve your quality of life. She takes the time to truly listen, understand your needs, and develop an individualized treatment protocol. With over 13 years of rigorous USA-based training and experience, she provides an international standard of care.",
     },
     {
       id: 1,
@@ -68,10 +68,6 @@ export default function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Side: Branding copy & Floating CTA Button */}
           <div className="lg:col-span-5 text-left space-y-6 lg:sticky lg:top-28">
-            <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
-              FAQs
-            </span>
-
             {/* Heading can still use primary colors/plum */}
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
               Frequently Asked Questions

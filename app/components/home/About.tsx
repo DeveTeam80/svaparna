@@ -10,13 +10,14 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 export default function FounderProfile() {
   const [isStoryModalOpen, setIsStoryModalOpen] = useState(false);
-
+  const router = useRouter();
   // Moving marquee list of degrees & credentials
   const certifications = [
-    "DPT (Doctor of Physical Therapy), LEND Fellow",
+    "Post-Graduate Doctor of Physical Therapy (University of Illinois Chicago)",
     "BSc Molecular and Cellular Biology (UIUC)",
     "CAPP-OB Certified (Pregnancy & Post-Partum Care)",
     "Certified Vestibular Rehabilitation Specialist",
@@ -95,10 +96,14 @@ export default function FounderProfile() {
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
               Meet Dr. Aparna Sekhar <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-start to-gold-end font-light text-2xl">
-                (PT, DPT, Cert VRS, AHC)
+                (PT, DPT, Cert VRS)
               </span>
             </h2>
-
+            <p className="text-md text-black">
+              {" "}
+              Senior Physiotherapist, Ayurvedic Practitioner & Integrative
+              Health Specialist
+            </p>
             {/* The Philosophy of Svaparna Core Component Block */}
             {/* <div className="bg-primary-brand/[0.02] border border-primary-brand/10 rounded-3xl p-6 sm:p-8 space-y-3 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-5 text-[#631a47] pointer-events-none">
@@ -129,16 +134,16 @@ export default function FounderProfile() {
             {/* Biographical Narrative Block */}
             <div className="space-y-4">
               <p className="text-base text-neutral-800 leading-relaxed font-normal">
-                Dr. Aparna is a <strong>Physiotherapist</strong> with over{" "}
-                <strong>13 years of clinical experience</strong> in the USA
-                serving diverse clientele and also a certified Ayurvedic
-                Practitioner. As a founder of Svaparna Health, she seamlessly
-                integrates evidence-based rehabilitation and the principles of
-                Ayurveda into a genuinely unique approach towards care. She has
-                been a Clinical Instructor for students in Community College
-                settings in the US in the USA and worked inpartnered with Pro
-                Bono Clinics to provide free Physiotherapy care to those in
-                need.
+                Dr. Aparna is a <strong> Physiotherapist </strong> with over{" "}
+                <strong> 13 years of clinical experience </strong> in USA
+                serving diverse clientele and also a certified{" "}
+                <strong> Ayurvedic Practitioner </strong>. As a founder of
+                Svaparna Health, she seamlessly integrates evidence-based
+                rehabilitation and the principles of Ayurvedic into a genuinely
+                unique approach towards care. She has been a Clinical Instructor
+                for students in Community College settings in the USA and
+                partnered with Pro Bono Clinics to provide free Physiotherapy
+                care to those in need.
               </p>
             </div>
 
@@ -146,7 +151,8 @@ export default function FounderProfile() {
             <div className="pt-2">
               <button
                 id="btn-read-full-story"
-                onClick={() => setIsStoryModalOpen(true)}
+                // onClick={() => setIsStoryModalOpen(true)}
+                onClick={() => router.push("/about")}
                 className="group inline-flex items-center gap-2 font-bold text-sm px-8 py-3.5 rounded-full shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 pointer-events-auto cursor-pointer bg-primary-brand/15 text-primary-brand hover:text-white hover:bg-[#52133a]"
               >
                 Read Dr. Aparna &apos; s Full Story
@@ -259,7 +265,7 @@ export default function FounderProfile() {
                     "CAPP-OB Pregnancy & Postpartum Specialty",
                     "Certified Vestibular Rehabilitation Specialist",
                     "Pediatric Bowel and Bladder Board Certified",
-                    "Ayurvedic Health Counselor (AHC, USA)",
+                    "Ayurvedic Health Counselor (USA)",
                     "Licensed Practitioner in Pulse Diagnosis (Nadi Pariksha)",
                     "Molecular and Cellular Biology Alumna (UIUC)",
                   ].map((cert, index) => (

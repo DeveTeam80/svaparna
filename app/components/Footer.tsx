@@ -93,52 +93,30 @@ export default function Footer({ onBookClick }: FooterProps) {
       </div> */}
 
       <div className="relative w-full bg-primary-brand text-white pb-12 z-20">
-        <svg
+        {/* <svg
           className="absolute left-0 right-0 w-full h-[120px] text-primary-brand fill-current pointer-events-none select-none z-10"
           style={{ top: "-119px" }}
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"
         >
           <path d="M0 90 C 200 90, 320 90, 440 90 C 490 90, 510 20, 560 20 L 880 20 C 930 20, 950 90, 1000 90 C 1120 90, 1240 90, 1440 90 L 1440 120 L 0 120 Z" />
-        </svg>
-
-        <div className="absolute left-0 right-0 top-[-92px] z-20 flex justify-center px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 max-w-4xl text-left text-white px-2 sm:px-6">
-            <div className="space-y-0.5 text-center">
-              <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
-                ADDRESS
-              </span>
-              <p className="font-sans text-md  font-light leading-relaxed select-text text-white">
-                200 Sutter St Suite 602 San <br />
-                Francisco, CA 94108
-              </p>
-            </div>
-
-            <div className="space-y-0.5">
-              <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
-                OFFICE HOURS
-              </span>
-              <div className="font-sans text-md  font-light leading-relaxed select-text text-white">
-                <p>Mon–Thu: 7:30am – 7:30pm</p>
-                <p>Friday: 8:00am – 4:30pm</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </svg> */}
 
         {/* Master footer core layout wrapper */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 relative z-10">
           {/* 1. Header Branding Icon Block */}
-          <div className="flex flex-col items-center text-center space-y-4 py-8">
-            {/* Serif Display Clinic title name */}
-            <img
-              src="assets/images/bg-removed-logo.png"
-              alt="Logo"
-              className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 w-auto group-hover:scale-105 transition-transform duration-300"
-            />
+          <div className="flex justify-center px-4">
+            <div className="flex flex-col items-center text-center space-y-4 py-6">
+              {/* Serif Display Clinic title name */}
+              <img
+                src="assets/images/bg-removed-logo.png"
+                alt="Logo"
+                className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-24 w-auto group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
           {/* 3. Comprehensive Multi-column navigation links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-left pt-12 pb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-left pb-12 pt-8">
             {/* Menu 1 - About */}
             <div className="space-y-4">
               <h4 className="text-[13px] tracking-[0.25em] text-gold-start font-mono uppercase">
@@ -196,7 +174,7 @@ export default function Footer({ onBookClick }: FooterProps) {
                     onClick={(e) => handleScrollToSection(e, "services")}
                     className="hover:text-white transition-colors"
                   >
-                    Chiropractic Care
+                    Pelvic Floor Rehabilitation
                   </a>
                 </li>
                 <li>
@@ -205,7 +183,7 @@ export default function Footer({ onBookClick }: FooterProps) {
                     onClick={(e) => handleScrollToSection(e, "services")}
                     className="hover:text-white transition-colors"
                   >
-                    Medical Massage
+                    Pregnancy & Postpartum Care
                   </a>
                 </li>
                 <li>
@@ -214,7 +192,7 @@ export default function Footer({ onBookClick }: FooterProps) {
                     onClick={(e) => handleScrollToSection(e, "services")}
                     className="hover:text-white transition-colors"
                   >
-                    Chronic Pain
+                    Pediatric Care{" "}
                   </a>
                 </li>
                 <li>
@@ -223,7 +201,7 @@ export default function Footer({ onBookClick }: FooterProps) {
                     onClick={(e) => handleScrollToSection(e, "services")}
                     className="hover:text-white transition-colors"
                   >
-                    Posture Correction
+                    Vestibular Rehabilitation
                   </a>
                 </li>
                 <li>
@@ -232,7 +210,16 @@ export default function Footer({ onBookClick }: FooterProps) {
                     onClick={(e) => handleScrollToSection(e, "services")}
                     className="hover:text-white transition-colors"
                   >
-                    Sport Injuries
+                    Orthopedic & Sports Rehab
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    onClick={(e) => handleScrollToSection(e, "services")}
+                    className="hover:text-white transition-colors"
+                  >
+                    Pre/Post-Surgical Rehabilitation
                   </a>
                 </li>
               </ul>
@@ -326,7 +313,26 @@ export default function Footer({ onBookClick }: FooterProps) {
               </ul>
             </div>
           </div>
-
+          <div className="space-y-0.5 text-center flex item-center gap-14 flex justify-center">
+            <div className="address">
+              <span className="text-[12px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
+                ADDRESS
+              </span>
+              <p className="font-sans text-md  font-light leading-relaxed select-text text-white">
+                200 Sutter St Suite 602 San <br />
+                Francisco, CA 94108
+              </p>
+            </div>
+            <div className="hours">
+              <span className="text-[12px] font-bold uppercase tracking-[0.22em] text-gold-start font-mono block">
+                OFFICE HOURS
+              </span>
+              <div className="font-sans text-sm  font-light leading-relaxed select-text text-white">
+                <p>Mon–Thu: 7:30am – 7:30pm</p>
+                <p>Friday: 8:00am – 4:30pm</p>
+              </div>
+            </div>
+          </div>
           {/* Dividing line separating menus from global copyrights block */}
           <div className="w-full h-[1px] bg-white/20 relative my-6">
             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/40"></div>

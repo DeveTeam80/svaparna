@@ -1,4 +1,11 @@
-import { UserCheck, GraduationCap, HeartHandshake, Award, Sparkles, Calendar } from "lucide-react";
+import {
+  UserCheck,
+  GraduationCap,
+  HeartHandshake,
+  Award,
+  Sparkles,
+  Calendar,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 interface DifferenceProps {
@@ -10,40 +17,42 @@ export default function Difference({ onBookClick }: DifferenceProps) {
     {
       id: "val-1",
       icon: <UserCheck className="w-8 h-8 text-primary-brand" />,
-      title: "1-on-1 Senior Care",
-      desc: "You will never be handed off to an intern or an assistant. You receive 100% of Dr. Aparna’s expertise at every visit. No superficial fixes, just precise, in-depth, customized guidance."
+      title: "1-on-1 Care",
+      desc: "You will never be handed off to an intern or an assistant. You receive 100% of Dr. Aparna’s expertise at every visit. No superficial fixes, just precise, in-depth, customized guidance.",
     },
     {
       id: "val-2",
       icon: <GraduationCap className="w-8 h-8 text-primary-brand" />,
       title: "International Standards",
-      desc: "Over 13 years of clinical experience in the US with a Doctor of Physical Therapy (DPT) degree. Every exercise is prescribed with a deep, evidence-based rationale."
+      desc: "Over 13 years of clinical experience in the USA with a Doctor of Physical Therapy (DPT) degree. Every exercise is prescribed with a deep, evidence-based rationale.",
     },
     {
       id: "val-3",
       icon: <HeartHandshake className="w-8 h-8 text-primary-brand" />,
       title: "Integrative Approach",
-      desc: "We don't just treat the symptom. By blending Physiotherapy and Ayurvedic Healing Practices, we support your body's natural healing environment."
+      desc: "We don't just treat the symptom. By blending Physiotherapy and Ayurvedic Healing Practices, we support your body's natural healing environment.",
     },
     {
       id: "val-4",
       icon: <Award className="w-8 h-8 text-primary-brand" />,
       title: "Niche Specializations",
-      desc: "Pelvic floor, pediatric bowel/bladder, vestibular rehab, and postpartum recovery specialized clinical areas most standard outpatient therapy centers don't cover."
-    }
+      desc: "Pelvic floor, pediatric bowel/bladder, vestibular rehab, and postpartum recovery specialized clinical areas most standard outpatient therapy centers don't cover.",
+    },
   ];
 
   return (
-    <section id="difference" className="py-16 bg-[#fffef7] px-4 sm:px-6 lg:px-8">
+    <section
+      id="difference"
+      className="py-16 bg-[#fffef7] px-4 sm:px-6 lg:px-8"
+    >
       {/* Outer rounded card duplicating the beautiful Flexora style but aligned to Svaparna brand guidelines */}
-      <motion.div 
+      <motion.div
         className="relative max-w-9xl mx-auto rounded-[32px] md:rounded-[48px] overflow-hidden shadow-sm bg-neutral-50/90 border border-primary-brand/10 p-8 sm:p-12 md:p-16 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        
         {/* Decorative background blurs to mimic professional organic modern layout */}
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-gold-end/10 rounded-full blur-3xl pointer-events-none -translate-y-16"></div>
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-primary-brand/5 rounded-full blur-3xl pointer-events-none translate-y-16"></div>
@@ -88,8 +97,7 @@ export default function Difference({ onBookClick }: DifferenceProps) {
         </div>
 
         {/* Action Buttons with only one beautiful, prominent golden primary button */}
-        <div className="relative z-10 flex items-center justify-center w-full">
-          {/* Single Golden Primary Button */}
+        {/* <div className="relative z-10 flex items-center justify-center w-full">
           <button
             id="diff-btn-book"
             onClick={onBookClick}
@@ -98,8 +106,7 @@ export default function Difference({ onBookClick }: DifferenceProps) {
             <Calendar className="w-4 h-4 text-primary-brand group-hover:text-white group-hover:translate-x-1 transition-transform" />
             Book Your Consultation
           </button>
-        </div>
-
+        </div> */}
       </motion.div>
     </section>
   );
