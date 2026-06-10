@@ -134,8 +134,8 @@ export default function OurProcess() {
         {/* Process Diagram Box Container */}
         <div className="relative mt-16 pb-12 max-w-6xl mx-auto">
           {/* Desktop connecting dashed line */}
-          <div className="hidden lg:block absolute top-[64px] left-[12%] right-[11%] h-[2px] border-t-2 border-dashed border-primary-brand/15 -z-10" />
 
+          <div className="hidden lg:block absolute top-[108px] left-[12%] right-[11%] h-[2px] border-t-2 border-dashed border-primary-brand/15 -z-10" />
           {/* 4-Column Responsive Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 items-start">
             {steps.map((step, index) => {

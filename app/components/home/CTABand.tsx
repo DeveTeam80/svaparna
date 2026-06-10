@@ -80,7 +80,7 @@ export default function CTABand({
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="group relative aspect-[21/9] min-h-[300px] overflow-hidden rounded-b-[1.5rem] border border-b-primary-brand/5 shadow-lg sm:min-h-[420px] sm:rounded-b-[2.5rem]">
           <img
-            src={image}
+            src="/assets/images/cta-img.png"
             alt={title}
             className="h-full w-full object-cover object-center transition-all duration-1000 group-hover:scale-[1.03]"
           />

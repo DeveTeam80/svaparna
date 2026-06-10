@@ -30,7 +30,7 @@ type WrittenTestimonial = {
 
 type Testimonial = VideoTestimonial | WrittenTestimonial;
 
-// ─── Data — no id field, array index is the single source of truth ───────────
+// ─── Data - no id field, array index is the single source of truth ───────────
 
 const testimonials: Testimonial[] = [
   {
@@ -272,7 +272,7 @@ export default function ReviewsCarousel() {
 
   const current = testimonials[currentIndex];
 
-  // navigate always by array index — single source of truth
+  // navigate always by array index - single source of truth
   const navigate = (newIndex: number, dir: number) => {
     setDirection(dir);
     setCurrentIndex(newIndex);

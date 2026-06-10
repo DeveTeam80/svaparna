@@ -106,7 +106,7 @@ export default function ConditionsTreatedCombined({
     <section id="conditions" className="bg-white text-primary-brand">
       {/* ── PART 1: NICHE FOCUS ───────────────────────────────────────────── */}
       <div className="border-b border-primary-brand/8">
-        {/* Full-width heading — unchanged */}
+        {/* Full-width heading - unchanged */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function ConditionsTreatedCombined({
 
         {/* Asymmetric grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] lg:h-[560px]">
-          {/* LEFT: image — enhanced overlays + pull-quote */}
+          {/* LEFT: image - enhanced overlays + pull-quote */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -169,7 +169,7 @@ export default function ConditionsTreatedCombined({
               }}
             />
 
-            {/* Ghost "06" — decorative count */}
+            {/* Ghost "06" - decorative count */}
             <div
               aria-hidden
               className="absolute top-8 right-10 leading-none select-none pointer-events-none"
@@ -185,7 +185,7 @@ export default function ConditionsTreatedCombined({
             </div>
           </motion.div>
 
-          {/* RIGHT: list — hover reveals subInfo, gradient hairline on active */}
+          {/* RIGHT: list - hover reveals subInfo, gradient hairline on active */}
           <div className="flex justify-center flex-col px-6 sm:px-10 md:px-12 py-10 sm:py-12 bg-[#fffef7] lg:h-full lg:overflow-y-auto">
             <div className="divide-y divide-primary-brand/6">
               {nicheItems.map((item, index) => {
@@ -277,7 +277,7 @@ export default function ConditionsTreatedCombined({
         </div>
       </div>
 
-      {/* ── PART 2: ORTHOPEDIC — cards with premium enhancements ─────────── */}
+      {/* ── PART 2: ORTHOPEDIC - cards with premium enhancements ─────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -314,7 +314,7 @@ export default function ConditionsTreatedCombined({
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Top accent bar — slides in on hover */}
+              {/* Top accent bar - slides in on hover */}
               <div
                 className="absolute top-0 left-0 right-0 h-[2.5px] origin-left scale-x-0
                            group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-[2rem]"
@@ -324,7 +324,7 @@ export default function ConditionsTreatedCombined({
                 }}
               />
 
-              {/* Ghost index number — bottom right */}
+              {/* Ghost index number - bottom right */}
               <span
                 aria-hidden
                 className="absolute -bottom-5 -right-3 leading-none select-none pointer-events-none
@@ -352,7 +352,7 @@ export default function ConditionsTreatedCombined({
                   {card.title}
                 </h4>
 
-                {/* Hairline — grows on hover */}
+                {/* Hairline - grows on hover */}
                 <div
                   className="h-px mb-5 w-8 group-hover:w-16 transition-all duration-500"
                   style={{
@@ -377,7 +377,7 @@ export default function ConditionsTreatedCombined({
                   ))}
                 </ul>
 
-                {/* CTA — slides up + fades in on hover */}
+                {/* CTA - slides up + fades in on hover */}
                 {/* <div
                   className="mt-6 flex items-center gap-2
                                opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
