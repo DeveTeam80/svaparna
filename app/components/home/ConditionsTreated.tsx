@@ -8,40 +8,47 @@ interface ConditionsTreatedProps {
   onBookConsultation: (condition?: string) => void;
 }
 
+// ── Add your local image paths here ──────────────────────────────────────────
 const nicheItems = [
   {
     id: "01",
     title: "Vertigo (BPPV: Benign Paroxysmal Positional Vertigo)",
     subInfo:
       "Specialized assessment and maneuvers for vertigo and associated dizziness.",
+    image: "assets/images/bppv.png", // e.g. "assets/images/vertigo.webp"
   },
   {
     id: "02",
     title: "Urinary Incontinence in Women",
     subInfo:
       "Targeted pelvic floor rehabilitation to restore control and confidence.",
+    image: "assets/images/urinary-incontinence.jpg", // e.g. "assets/images/pelvic-floor.webp"
   },
   {
     id: "03",
     title: "Pregnancy-related low back pain",
     subInfo:
       "Safe, evidence-based physical therapy to manage and relieve back pain during pregnancy.",
+    image: "assets/images/pregnancy-back-pain.jpeg", // e.g. "assets/images/pregnancy-care.webp"
   },
   {
     id: "04",
     title: "Diastasis Recti recovery postpartum",
     subInfo:
       "Guided core rehabilitation to safely close abdominal separation after childbirth.",
+    image: "assets/images/diastatis-recti.jpg", // e.g. "assets/images/postpartum.webp"
   },
   {
     id: "05",
     title: "Constipation in children",
     subInfo: "Gentle, non-invasive pediatric bowel management techniques.",
+    image: "assets/images/constipation-in-children.webp", // e.g. "assets/images/pediatric.webp"
   },
   {
     id: "06",
     title: "Bed wetting in children",
     subInfo: "Pediatric bladder control strategies and pelvic floor education.",
+    image: "assets/images/bed-wetting-children.jpeg", // e.g. "assets/images/bedwetting.webp"
   },
 ];
 
@@ -95,18 +102,23 @@ const orthoCards = [
   },
 ];
 
-const SECTION_IMAGE = "assets/images/Manual-Therapy.webp";
+// Fallback shown when no per-item image is hovered yet
+const DEFAULT_IMAGE = "assets/images/Manual-Therapy.webp";
 
 export default function ConditionsTreatedCombined({
   onBookConsultation,
 }: ConditionsTreatedProps) {
   const [activeItem, setActiveItem] = useState("01");
 
+  const activeNiche = nicheItems.find((n) => n.id === activeItem)!;
+  // Use the item's specific image if provided, otherwise fall back to default
+  const currentImage = activeNiche.image || DEFAULT_IMAGE;
+
   return (
     <section id="conditions" className="bg-white text-primary-brand">
       {/* ── PART 1: NICHE FOCUS ───────────────────────────────────────────── */}
       <div className="border-b border-primary-brand/8">
-        {/* Full-width heading - unchanged */}
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,8 +127,8 @@ export default function ConditionsTreatedCombined({
           className="px-6 sm:px-10 md:px-16 lg:px-20 pt-16 sm:pt-20 pb-10 border-b border-primary-brand/8
                      flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
         >
-          <div className="text-center  space-y-4">
-            <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4.5 py-1.5 rounded-full">
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4 py-1.5 rounded-full">
               <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
                 Featured Niche Focus Areas
               </span>
@@ -133,7 +145,7 @@ export default function ConditionsTreatedCombined({
 
         {/* Asymmetric grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] lg:h-[560px]">
-          {/* LEFT: image - enhanced overlays + pull-quote */}
+          {/* LEFT: image panel with reveal crossfade */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -142,16 +154,43 @@ export default function ConditionsTreatedCombined({
             className="relative h-80 sm:h-[440px] lg:h-full overflow-hidden bg-[#1a0d14]
                        border-b lg:border-b-0 lg:border-r border-primary-brand/8"
           >
-            <img
-              src={SECTION_IMAGE}
-              alt="Physiotherapist providing hands-on treatment"
-              className="w-full h-full object-cover object-[center_25%] block"
-            />
+            {/*
+              All 6 images are pre-rendered in the DOM, stacked.
+              The active one gets opacity-100 + scale(1), others are opacity-0 + scale(1.04).
+              This gives a smooth reveal without AnimatePresence mount/unmount flicker.
+              clipPath slides from left-to-right on the active image for the reveal effect.
+            */}
+            {nicheItems.map((item) => {
+              const isActive = item.id === activeItem;
+              const src = item.image || DEFAULT_IMAGE;
+              return (
+                <motion.div
+                  key={item.id}
+                  className="absolute inset-0"
+                  initial={false}
+                  animate={{
+                    opacity: isActive ? 1 : 0,
+                    scale: isActive ? 1 : 1.06,
+                  }}
+                  transition={{
+                    opacity: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+                    scale: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+                  }}
+                  style={{ zIndex: isActive ? 1 : 0 }}
+                >
+                  <img
+                    src={src}
+                    alt={item.title}
+                    className={`w-full h-full ${item.id === "01" ? "object-contain" : "object-cover"}  object-[center_25%] block`}
+                  />
+                </motion.div>
+              );
+            })}
 
-            {/* Layered overlay */}
+            {/* Layered overlay — always on top of images */}
             <div
               aria-hidden
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(145deg, rgba(99,26,71,0.28) 0%, transparent 45%), " +
@@ -162,30 +201,41 @@ export default function ConditionsTreatedCombined({
             {/* Accent bar */}
             <div
               aria-hidden
-              className="absolute top-0 left-0 right-0 h-[3px] pointer-events-none"
+              className="absolute top-0 left-0 right-0 h-[3px] pointer-events-none z-20"
               style={{
                 background:
                   "linear-gradient(90deg, #9b6b3a, #631a47, transparent)",
               }}
             />
 
-            {/* Ghost "06" - decorative count */}
-            <div
-              aria-hidden
-              className="absolute top-8 right-10 leading-none select-none pointer-events-none"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: "clamp(5rem, 12vw, 9rem)",
-                color: "rgba(255,255,255,0.05)",
-                fontWeight: 300,
-                lineHeight: 1,
-              }}
-            >
-              06
+            {/* Active condition label — bottom of image */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeItem}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <p className="text-[9px] uppercase tracking-[0.2em] font-mono font-bold text-white/35 mb-1.5">
+                    {activeNiche.id} /{" "}
+                    {String(nicheItems.length).padStart(2, "0")}
+                  </p>
+                  <p
+                    className="text-white text-base sm:text-lg font-normal leading-snug max-w-xs"
+                    style={{
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    {activeNiche.title}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
 
-          {/* RIGHT: list - hover reveals subInfo, gradient hairline on active */}
+          {/* RIGHT: interactive list */}
           <div className="flex justify-center flex-col px-6 sm:px-10 md:px-12 py-10 sm:py-12 bg-[#fffef7] lg:h-full lg:overflow-y-auto">
             <div className="divide-y divide-primary-brand/6">
               {nicheItems.map((item, index) => {
@@ -214,7 +264,7 @@ export default function ConditionsTreatedCombined({
                         {item.id}
                       </span>
 
-                      {/* Gradient hairline on active */}
+                      {/* Gradient hairline */}
                       <div
                         className="self-stretch shrink-0 transition-all duration-300 rounded-full"
                         style={{
@@ -236,26 +286,6 @@ export default function ConditionsTreatedCombined({
                         >
                           {item.title}
                         </h3>
-
-                        {/* subInfo expands on active */}
-                        {/* <AnimatePresence initial={false}>
-                          {isActive && (
-                            <motion.p
-                              key="sub"
-                              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                              animate={{
-                                opacity: 1,
-                                height: "auto",
-                                marginTop: 5,
-                              }}
-                              exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                              transition={{ duration: 0.22, ease: "easeInOut" }}
-                              className="text-xs text-neutral-400 leading-relaxed overflow-hidden"
-                            >
-                              {item.subInfo}
-                            </motion.p>
-                          )}
-                        </AnimatePresence> */}
                       </div>
 
                       <motion.div
@@ -277,24 +307,25 @@ export default function ConditionsTreatedCombined({
         </div>
       </div>
 
-      {/* ── PART 2: ORTHOPEDIC - cards with premium enhancements ─────────── */}
+      {/* ── PART 2: ORTHOPEDIC ───────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="text-center  space-y-4 mb-10"
+          className="text-center space-y-4 mb-10"
         >
-          <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4.5 py-1.5 rounded-full">
+          <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4 py-1.5 rounded-full">
             <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
-              General Care{" "}
+              General Care
             </span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
             Orthopedic &amp; Post-Operative Care
           </h2>
         </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
           {orthoCards.map((card, index) => (
             <motion.div
@@ -314,7 +345,7 @@ export default function ConditionsTreatedCombined({
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Top accent bar - slides in on hover */}
+              {/* Top accent bar */}
               <div
                 className="absolute top-0 left-0 right-0 h-[2.5px] origin-left scale-x-0
                            group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-[2rem]"
@@ -324,7 +355,7 @@ export default function ConditionsTreatedCombined({
                 }}
               />
 
-              {/* Ghost index number - bottom right */}
+              {/* Ghost number */}
               <span
                 aria-hidden
                 className="absolute -bottom-5 -right-3 leading-none select-none pointer-events-none
@@ -352,7 +383,6 @@ export default function ConditionsTreatedCombined({
                   {card.title}
                 </h4>
 
-                {/* Hairline - grows on hover */}
                 <div
                   className="h-px mb-5 w-8 group-hover:w-16 transition-all duration-500"
                   style={{
@@ -376,18 +406,6 @@ export default function ConditionsTreatedCombined({
                     </li>
                   ))}
                 </ul>
-
-                {/* CTA - slides up + fades in on hover */}
-                {/* <div
-                  className="mt-6 flex items-center gap-2
-                               opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-                               transition-all duration-250"
-                >
-                  <span className="text-[10px] uppercase tracking-widest font-semibold text-[#631a47] font-mono">
-                    Book consultation
-                  </span>
-                  <ChevronRight className="w-3 h-3 text-[#631a47]" />
-                </div> */}
               </div>
             </motion.div>
           ))}

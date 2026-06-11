@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-
-export default function TreatmentPackages() {
+interface TreatmentPackagesProps {
+  openCalendly: (url: string) => void;
+}
+export default function TreatmentPackages({
+  openCalendly,
+}: TreatmentPackagesProps) {
   return (
     <section
       id="nature-inspired"
@@ -88,6 +92,14 @@ export default function TreatmentPackages() {
                     </div>
                   </div>
                 </div>
+                <button
+                  onClick={() =>
+                    openCalendly("https://calendly.com/qusaivsbizz/new-meeting")
+                  }
+                  className="w-full rounded-full bg-gradient-to-r from-gold-start to-gold-end px-6 py-3.5 text-sm font-semibold text-primary-brand shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+                >
+                  Book Physiotherapy Consultation
+                </button>
 
                 <div className="rounded-[2rem] border border-primary-brand/10 bg-white/80 p-5 shadow-sm">
                   <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-gold-start">
@@ -185,6 +197,15 @@ export default function TreatmentPackages() {
                     </div>
                   </div>
                 </div>
+
+                <button
+                  onClick={() =>
+                    openCalendly("https://calendly.com/qusaivsbizz/30min")
+                  }
+                  className="w-full rounded-full bg-gradient-to-r from-gold-start to-gold-end px-6 py-3.5 text-sm font-semibold text-primary-brand shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+                >
+                  Book Ayurvedic Consultation
+                </button>
 
                 <div className="rounded-[2rem] border border-primary-brand/10 bg-white/80 p-5 shadow-sm">
                   <p className="text-sm leading-7 text-neutral-700">

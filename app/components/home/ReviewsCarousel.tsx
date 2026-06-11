@@ -57,7 +57,7 @@ const testimonials: Testimonial[] = [
   },
   {
     type: "video",
-    text: "Hello, This is Dr. Suri. I've had the opportunity to work with Dr. Aparna, and I really come to appreciate both her knowledge and the care she puts into her work. One thing that stands out to me is that how much she truly listens. She takes time to understand each person's concerns and creates an approach that feels personalized and thoughtful rather than one-size-fits-all. I would highly recommend experiencing the integrative approach that Dr. Aparna and Svaparna Health bring to supporting health.",
+    text: "Hello, This is Dr. Suri. I'm an acupuncturist from California I've had the opportunity to work with Dr. Aparna, and I really come to appreciate both her knowledge and the care she puts into her work. One thing that stands out to me is that how much she truly listens. She takes time to understand each person's concerns and creates an approach that feels personalized and thoughtful rather than one-size-fits-all. I would highly recommend experiencing the integrative approach that Dr. Aparna and Svaparna Health bring to supporting health.",
     author: "Dr. Suri",
     location: "Acupuncturist, California",
     shortQuote:

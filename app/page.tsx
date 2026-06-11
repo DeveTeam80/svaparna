@@ -17,9 +17,18 @@ import TreatmentPackages from "./components/home/TreatmentPackages";
 import CTABand from "./components/home/CTABand";
 import Services from "./components/home/Services";
 import { Calendar } from "lucide-react";
-// import Contact from "@/components/Contact";
+import CalendlyModal from "./components/calendlyModal";
+import { useState } from "react";
 
 export default function Home() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlyUrl, setCalendlyUrl] = useState("");
+
+  const openCalendly = (url: string) => {
+    setCalendlyUrl(url);
+    setIsCalendlyOpen(true);
+  };
+
   return (
     <>
       <Hero
@@ -35,7 +44,7 @@ export default function Home() {
       <ConditionsTreated onBookConsultation={() => {}} />
       <OurProcess />
       <Difference onBookClick={() => {}} />
-      <TreatmentPackages />
+      <TreatmentPackages openCalendly={openCalendly} />
       <ReviewsCarousel />
       <FAQ />
       <CTABand
@@ -45,12 +54,17 @@ export default function Home() {
         buttons={[
           {
             label: "Book a Consultation",
-            href: "#",
+            onClick: () => openCalendly("https://calendly.com/qusaivsbizz"),
             icon: <Calendar className="h-4 w-4" />,
             variant: "primary",
           },
         ]}
-      />{" "}
+      />
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        url={calendlyUrl}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </>
   );
 }
