@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 // import BookingModal from "@/components/BookingModal";
 import { NavItem } from "@/types";
+import CalendlyModal from "./calendlyModal";
 
 export default function UiLayoutShell({
   children,
@@ -18,6 +19,14 @@ export default function UiLayoutShell({
   const [selectedConsultType, setSelectedConsultType] = useState<
     "online" | "offline"
   >("online");
+
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlyUrl, setCalendlyUrl] = useState("");
+
+  const openCalendly = (url: string) => {
+    setCalendlyUrl(url);
+    setIsCalendlyOpen(true);
+  };
 
   const navItems: NavItem[] = [
     { label: "Home", href: "/#home" },
@@ -42,11 +51,15 @@ export default function UiLayoutShell({
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar stays on top of every page */}
-      <Navbar navItems={navItems} onBookClick={() => handleOpenBooking()} />
+      <Navbar navItems={navItems} openCalendly={openCalendly} />
 
       {/* This renders whatever page the user is currently on */}
       <main className="flex-grow">{children}</main>
-
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        url={calendlyUrl}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
       {/* Footer stays at the bottom of every page */}
       <Footer onBookClick={() => handleOpenBooking()} />
 

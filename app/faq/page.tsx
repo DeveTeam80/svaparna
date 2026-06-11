@@ -49,7 +49,7 @@ const categories: FAQCategory[] = [
       },
       {
         question: "What payment methods are accepted?",
-        answer: "Cash, UPI for Indian clients and PayPal for US clients",
+        answer: "Cash, UPI for Indian clients and PayPal for USA clients",
       },
     ],
   },

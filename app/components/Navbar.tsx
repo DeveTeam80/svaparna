@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { Phone, Calendar, Menu, X, Sparkles } from "lucide-react";
+import { Phone, Calendar, Menu, X } from "lucide-react";
 import { NavItem } from "../../types";
 import Link from "next/link";
 
 interface NavbarProps {
   navItems: NavItem[];
-  onBookClick: () => void;
+  openCalendly: (url: string) => void;
 }
 
-export default function Navbar({ navItems, onBookClick }: NavbarProps) {
+export default function Navbar({ navItems, openCalendly }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
@@ -93,14 +93,13 @@ export default function Navbar({ navItems, onBookClick }: NavbarProps) {
             {/* Book Appointment CTA Button */}
             <button
               id="nav-cta-book"
-              onClick={onBookClick}
+              onClick={() => openCalendly("https://calendly.com/qusaivsbizz/")}
               className="relative overflow-hidden group bg-gradient-to-r from-gold-start to-gold-end text-primary-brand font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 <Calendar className="w-4 h-4 text-primary-brand" />
                 Consultation
               </span>
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
             </button>
           </div>
 
@@ -169,11 +168,8 @@ export default function Navbar({ navItems, onBookClick }: NavbarProps) {
             </a>
 
             <button
-              id="nav-mobile-cta-book"
-              onClick={() => {
-                setIsOpen(false);
-                onBookClick();
-              }}
+              id="nav-mobile-cta-book "
+              onClick={() => openCalendly("https://calendly.com/qusaivsbizz/")}
               className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-start to-gold-end text-primary-brand font-semibold px-4 py-3.5 rounded-xl text-sm shadow-xs"
             >
               <Calendar className="w-4 h-4" />
