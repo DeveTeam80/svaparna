@@ -18,7 +18,7 @@ export default function FAQ() {
       id: 0,
       question: "Why see a specialist like Dr. Aparna for your diagnosis?",
       answer:
-        "Most people resort to costly surgeries or invasive options when significant recovery can often be achieved through conservative, integrative care. At Svaparna Health, Dr. Aparna combines clinical expertise with a holistic approach to help address the root cause of your concerns and improve your quality of life. She takes the time to truly listen, understand your needs, and develop an individualized treatment protocol. With over 13 years of rigorous USA-based training and experience, she provides an international standard of care.",
+        "Most people resort to costly surgeries or invasive options when significant recovery can often be achieved through conservative, integrative care. At Svaparna Health, Dr. Aparna's combines clinical expertise with a holistic approach to help address the root cause of your concerns and improve your quality of life. She takes the time to truly listen, understand your needs, and develop an individualized treatment protocol. With over 13 years of rigorous USA-based training and experience, she provides an international standard of care.",
     },
     {
       id: 1,

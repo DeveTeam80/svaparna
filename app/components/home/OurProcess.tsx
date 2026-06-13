@@ -78,7 +78,7 @@ export default function OurProcess() {
       title: "Ongoing Care",
       subtitle: "45 Mins Dedicated",
       description:
-        "Consistent follow-up sessions with Dr. Aparna experties every single time.",
+        "Consistent follow-up sessions with Dr. Aparna's experties every single time.",
       colorHex: "#c38e1a", // warm amber
       badgeBg: "bg-[#c38e1a]",
       iconBg: "bg-[#c38e1a]/10 hover:bg-[#c38e1a]",

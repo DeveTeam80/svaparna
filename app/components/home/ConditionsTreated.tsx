@@ -308,101 +308,49 @@ export default function ConditionsTreatedCombined({
       </div>
 
       {/* ── PART 2: ORTHOPEDIC ───────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <motion.div
+          className="text-left mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="text-center space-y-4 mb-10"
+          transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center space-x-2 bg-primary-brand/5 border border-primary-brand/10 px-4 py-1.5 rounded-full">
-            <span className="text-xs font-base uppercase tracking-widest text-[#631a47]">
-              General Care
-            </span>
-          </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-primary-brand tracking-tight">
-            Orthopedic &amp; Post-Operative Care
+            General Orthopedic & Post-Operative Care
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {orthoCards.map((card, index) => (
             <motion.div
               key={card.id}
               onClick={() =>
                 onBookConsultation(`Therapy consultation for ${card.title}`)
               }
-              className="group cursor-pointer rounded-[2rem] p-8 sm:p-10 flex flex-col min-h-[360px]
-                         border border-primary-brand/6 relative overflow-hidden
-                         hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(99,26,71,0.09)]
-                         transition-all duration-300"
-              style={{
-                background: "linear-gradient(160deg, #f8f4f7 0%, #f2eaf1 100%)",
-              }}
+              className={`relative group cursor-pointer rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between min-h-[360px] overflow-hidden transition-transform duration-300 hover:-translate-y-1 bg-[#f5f4ef]`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Top accent bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2.5px] origin-left scale-x-0
-                           group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-[2rem]"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #9b6b3a, #631a47, transparent)",
-                }}
-              />
-
-              {/* Ghost number */}
-              <span
-                aria-hidden
-                className="absolute -bottom-5 -right-3 leading-none select-none pointer-events-none
-                           opacity-[0.04] group-hover:opacity-[0.07] transition-opacity duration-300"
-                style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: "9rem",
-                  color: "#631a47",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                }}
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <div className="relative z-10 flex flex-col flex-1">
-                <span className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#9b6b3a] font-mono block mb-4">
+              <div className="relative z-10">
+                <span className="text-[10px] text-[#a39775] sm:text-xs font-bold tracking-[0.2em] uppercase mb-5 block ">
                   {card.tag}
                 </span>
 
-                <h4
-                  className="text-2xl font-normal text-primary-brand tracking-tight mb-4"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+                <h4 className="font-serif text-2xl font-normal text-primary-brand tracking-tight mb-5">
                   {card.title}
                 </h4>
 
-                <div
-                  className="h-px mb-5 w-8 group-hover:w-16 transition-all duration-500"
-                  style={{
-                    background: "linear-gradient(90deg, #9b6b3a, transparent)",
-                  }}
-                />
-
-                <ul className="space-y-2.5 flex-1">
+                <ul className="space-y-3">
                   {card.description.map((item, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-neutral-600 text-sm leading-relaxed"
+                      className="flex items-start gap-3 text-neutral-700 text-base leading-relaxed"
                     >
-                      <span
-                        className="w-1.5 h-1.5 rounded-full bg-[#631a47]/25 mt-[7px] shrink-0
-                                       group-hover:bg-[#631a47]/50 transition-colors duration-300"
-                      />
-                      <span className="group-hover:text-neutral-700 transition-colors duration-200">
-                        {item}
-                      </span>
+                      <span className="w-2 h-2 rounded-full bg-gold-start mt-2 shrink-0" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
